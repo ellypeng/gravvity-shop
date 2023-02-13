@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "webgl/Shoes1.jsx", "webgl/Shoes2.jsx", "webgl/Shoes14.jsx", "webgl/Shoes12.jsx", "webgl/Shoes10.jsx"],
+  "exclude": ["node_modules"]
+}
