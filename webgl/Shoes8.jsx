@@ -12,19 +12,21 @@ export function Shoes8(props) {
   const [hovered, setHover] = useState(false)
   useCursor(hovered)
   const ref = useRef()
+  const models_configs = useStore((s) => s.models_configs)
 
-  const model_8_url = 'assets/models/clothes/black.glb'
-  
-  const { scene } = useLoader(GLTFLoader, model_8_url)
+  const { scene } = useLoader(GLTFLoader, models_configs.model_12.url_model_12)
 
   return (
-    <primitive 
-      {...props}       
-      object={scene} 
+    <primitive
+      {...props}
+      object={scene}
       rotation={props.rotation}
-      position={props.position} 
-      scale={props.scale} 
+      position={props.position}
+      scale={props.scale}
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 12 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))}
     >
     </primitive>
   )

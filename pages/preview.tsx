@@ -90,7 +90,7 @@ function loadStorage() {
       shoesColor: shoesColor,
       uiStep: 3,
     });
-  } else if (localStorage.getItem("avatarName") !== null && localStorage.getItem("email") !== null ) {
+  } else if (localStorage.getItem("avatarName") !== null && localStorage.getItem("email") !== null) {
     const name = String(localStorage.getItem("avatarName"));
     const email = String(localStorage.getItem("email"));
     useStore.setState({ name: name, email: email, uiStep: 2 });
@@ -135,20 +135,22 @@ const Loading = (props: any) => {
 export default function Home() {
 
   const router = useRouter();
-    //the default model of ready player me
+  //the default model of ready player me
   // const [urlModel, setUrlModel] = useState('https://models.readyplayer.me/63c18a08b7a4f54ed11e2d67.glb')
   const [urlModel, setUrlModel] = useState('https://api.readyplayer.me/v1/avatars/6317749e666e9239d9d464d9.glb')
 
- 
+
   const uiStep: number = useStore((s) => s.uiStep);
   const goto: string = useStore((s) => s.goto);
   const test: any = useStore((s) => s.testPoster);
   const test_size_url: any = useStore((s) => s.test_size_url);
   const rotacionTes: any = useStore((s) => s.testRotacion);
-
+  const models_configs: any = useStore((s) => s.models_configs)
   useEffect(() => {
     loadStorage();
   }, []);
+
+  // console.log(models_configs)
 
   const handleDataFromChild = (data: any) => {
     setUrlModel(data)
@@ -181,9 +183,9 @@ export default function Home() {
           <pointLight intensity={0.05} decay={2} color="#ffffff" position={[13.48, 9.43, 4.1]} rotation={[-Math.PI / 2, 0, 0]} />
           <Suspense fallback={null}>
             <Physics gravity={[0, -65, 0]}>
-            {/* <Debug color="green" scale={1.1}> */}
+              {/* <Debug color="green" scale={1.1}> */}
               <Room visible={uiStep === 3 ? true : false} />
-              
+
               <PlayerDesktop />
               <AvatarPlayer
                 urlPlayer={urlModel}
@@ -194,54 +196,66 @@ export default function Home() {
                 avatarSetting={uiStep === 4 ? true : false} />
 
               {/* Lightning Poster */}
-              <Poster1 position={[16.22, 4.0, -4.8]} rotation={[0, -Math.PI*89.6/180, 0]} scale={[4.62, 7, 2]} visible={uiStep === 3 ? true : false}/>
-              <Poster2 position={[9.8, 4.03, -11.47]} rotation={[0, -Math.PI*2/360, 0]} scale={[4.0, 6.79, 2]} visible={uiStep === 3 ? true : false}/>
+              <Poster1 position={[16.22, 4.0, -4.8]} rotation={[0, -Math.PI * 89.6 / 180, 0]} scale={[4.62, 7, 2]} visible={uiStep === 3 ? true : false} />
+              <Poster2 position={[9.8, 4.03, -11.47]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.0, 6.79, 2]} visible={uiStep === 3 ? true : false} />
               {/* Wall */}
-              <Poster3 position={[-0.96, 4.26, -12.67]} rotation={[0, -Math.PI*2/360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false}/>
-              <Poster3 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI*2/360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
+              <Poster3 position={[-0.96, 4.26, -12.67]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
+              <Poster3 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
 
               {/* <Poster4 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI*0.1/360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false}/> */}
               {/* Video */}
-              <Poster5 position={[-7.8, 3.94, 8.16]} rotation={[0, Math.PI*106/180, 0]} scale={[3.3, 7.2, 2]} visible={uiStep === 3 ? true : false}/>
+              <Poster5 position={[-7.8, 3.94, 8.16]} rotation={[0, Math.PI * 106 / 180, 0]} scale={[3.3, 7.2, 2]} visible={uiStep === 3 ? true : false} />
               {/* Lobby Poster */}
-              <Poster6 position={test} rotation={[0, -Math.PI * rotacionTes / 180, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false}/>
-              <Poster7 position={[-13.26, 4.8, 16.28]} rotation={[0, Math.PI*61.94/180, 0]} scale={[5.1, 7.6, 2.]} visible={uiStep === 3 ? true : false}/>
+              <Poster6 position={test} rotation={[0, -Math.PI * rotacionTes / 180, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
+              <Poster7 position={[-13.26, 4.8, 16.28]} rotation={[0, Math.PI * 61.94 / 180, 0]} scale={[5.1, 7.6, 2.]} visible={uiStep === 3 ? true : false} />
 
               {/* Logo */}
-              <LogoMain position={[2.14, 4.58, 13.14]} rotation={[0, Math.PI*181.4/180, 0]} scale={[4, 4, 1]} visible={uiStep === 3 ? true : false}/>
-              <LogoMain position={[-4.9, 6.53, 13.5]} rotation={[0, -Math.PI*2.15/14, 0]} scale={[2.1, 2.1, 1]} visible={uiStep === 3 ? true : false}/>
+              <LogoMain position={[2.14, 4.58, 13.14]} rotation={[0, Math.PI * 181.4 / 180, 0]} scale={[4, 4, 1]} visible={uiStep === 3 ? true : false} />
+              <LogoMain position={[-4.9, 6.53, 13.5]} rotation={[0, -Math.PI * 2.15 / 14, 0]} scale={[2.1, 2.1, 1]} visible={uiStep === 3 ? true : false} />
 
-              <Mirror position={[-4.3, 3, -12]} rotation={[0, Math.PI/2, 0]} visible={uiStep === 3 ? true : false}/>
-              
-              <Shoes1 position={[-1.4, 1.4, -11.1]} visible={uiStep === 3 ? true : false}/>
-              <Shoes2 position={[0.4, 1.4, -11.1]} visible={uiStep === 3 ? true : false}/>
-              <Shoes15 position={[2.2, 1.4, -11.1]} visible={uiStep === 3 ? true : false}/>
-              <Shoes16 position={[-1.4, 1.4, -6.04]} visible={uiStep === 3 ? true : false}/>
-              <Shoes17 position={[0.4, 1.4, -6.04]} visible={uiStep === 3 ? true : false}/>
-              <Shoes18 position={[2.2, 1.4, -6.04]} visible={uiStep === 3 ? true : false}/>
+              <Mirror position={[-4.3, 3, -12]} rotation={[0, Math.PI / 2, 0]} visible={uiStep === 3 ? true : false} />
+
+              <Shoes1 position={models_configs.model_1.position_1} scale={models_configs.model_1.size_model_1} visible={uiStep === 3 ? true : false} />
+              <Shoes2 position={models_configs.model_2.position_2} scale={models_configs.model_2.size_model_2} visible={uiStep === 3 ? true : false} />
+              <Shoes15 position={models_configs.model_3.position_3} scale={models_configs.model_3.size_model_3} visible={uiStep === 3 ? true : false} />
+              <Shoes16 position={models_configs.model_4.position_4} scale={models_configs.model_4.size_model_4} visible={uiStep === 3 ? true : false} />
+              <Shoes17 position={models_configs.model_5.position_5} scale={models_configs.model_5.size_model_5} visible={uiStep === 3 ? true : false} />
+              <Shoes18 position={models_configs.model_6.position_6} scale={models_configs.model_6.size_model_6} visible={uiStep === 3 ? true : false} />
               {/* <Shoes3 position={[-1.4, 2, -6.04]} visible={uiStep === 3 ? true : false}/>
               <Shoes4 position={[[-1.4, 2, -6.04]]} visible={uiStep === 3 ? true : false}/> */}
 
-              <ShelfLeft position={[-11.12, 0.6, -8.5]} scale={1.3} rotation={[0, Math.PI/4, 0]} visible={uiStep === 3 ? true : false} />          
-              <ShelfMiddle position={[-11.32, 3.3, -10.5]} scale={1.4} rotation={[0, Math.PI/4, 0]} visible={uiStep === 3 ? true : false} />          
-              
+              <ShelfLeft position={models_configs.model_7.position_7} scale={models_configs.model_7.size_model_7}
+                rotation={models_configs.model_7.rotation_7} visible={uiStep === 3 ? true : false} />
+              <ShelfMiddle position={models_configs.model_8.position_8} scale={models_configs.model_7.size_model_7}
+                rotation={models_configs.model_8.rotation_8} visible={uiStep === 3 ? true : false} />
+
               {/* hall center */}
-              <Shoes5 position={[0, 2.2, 2]} scale={test_size_url} rotation={[0, Math.PI, 0]} visible={uiStep === 3 ? true : false} />
+              <Shoes5 position={models_configs.model_9.position_9} scale={models_configs.model_9.size_model_9}
+                rotation={models_configs.model_9.rotation_9} visible={uiStep === 3 ? true : false} />
 
               {/* lighening */}
-              <Shoes6 position={[13.67, 3.14, -10.85]} scale={.004} rotation={[0, -Math.PI*40/180, 0]}  visible={uiStep === 3 ? true : false} />
-              <Shoes7 position={[15.17, 3.14, -8.85]} scale={.004} rotation={[0, -Math.PI*40/180, 0]}  visible={uiStep === 3 ? true : false} />
-              
-              <Shoes8 position={[15.57, -1, 6.85]} scale={0.03} rotation={[-Math.PI/2, 0, -Math.PI/2]} visible={uiStep === 3 ? true : false} />
-              <Shoes9 position={[15.57, -1, 9.25]} scale={0.03} rotation={[Math.PI/2, -Math.PI/2, Math.PI/2]} visible={uiStep === 3 ? true : false} />
-              <Shoes10 position={[15.57, -1, 11.45]} scale={0.03} rotation={[Math.PI/2, -Math.PI/2, Math.PI/2]} visible={uiStep === 3 ? true : false} />
-              <Shoes11 position={[14.87, -1, 13.8]} scale={0.03} rotation={[0,Math.PI*5/4,0]} visible={uiStep === 3 ? true : false} />
-              <Shoes12 position={[12.17, -1, 14.9]} scale={0.03} rotation={[0,Math.PI,0]} visible={uiStep === 3 ? true : false} />
-              <Shoes13 position={[9.87, -1, 14.9]} scale={0.03} rotation={[0,Math.PI,0]}  visible={uiStep === 3 ? true : false} />
-              <Shoes14 position={[7.6, -1, 14.9]} scale={0.03} rotation={[Math.PI/2, Math.PI, 0]} visible={uiStep === 3 ? true : false}/>
+              <Shoes6 position={models_configs.model_10.position_10} scale={models_configs.model_10.size_model_10}
+                rotation={models_configs.model_10.rotation_10} visible={uiStep === 3 ? true : false} />
+              <Shoes7 position={models_configs.model_11.position_11} scale={models_configs.model_11.size_model_11}
+                rotation={models_configs.model_11.rotation_11} visible={uiStep === 3 ? true : false} />
 
-              <VideoText position={[-10.25, 3.95, 0.8]} rotation={[0, Math.PI*1.1843/2, 0]} visible={uiStep === 3 ? true : false} />
-            {/* </Debug> */}
+              <Shoes8 position={models_configs.model_12.position_12} scale={models_configs.model_12.size_model_12}
+                rotation={models_configs.model_12.rotation_12} visible={uiStep === 3 ? true : false} />
+              <Shoes9 position={models_configs.model_13.position_13} scale={models_configs.model_13.size_model_13}
+                rotation={models_configs.model_13.rotation_13} visible={uiStep === 3 ? true : false} />
+              <Shoes10 position={models_configs.model_14.position_14} scale={models_configs.model_14.size_model_14}
+                rotation={models_configs.model_14.rotation_14}  visible={uiStep === 3 ? true : false} />
+              <Shoes11 position={models_configs.model_15.position_15} scale={models_configs.model_15.size_model_15}
+                rotation={models_configs.model_15.rotation_15} visible={uiStep === 3 ? true : false} />
+              <Shoes12 position={models_configs.model_16.position_16} scale={models_configs.model_16.size_model_16}
+                rotation={models_configs.model_16.rotation_16} visible={uiStep === 3 ? true : false} />
+              <Shoes13 position={models_configs.model_17.position_17} scale={models_configs.model_16.size_model_16}
+                rotation={models_configs.model_17.rotation_17} visible={uiStep === 3 ? true : false} />
+              <Shoes14 position={models_configs.model_18.position_18} scale={models_configs.model_18.size_model_18}
+                rotation={models_configs.model_18.rotation_18} visible={uiStep === 3 ? true : false} />
+
+              <VideoText position={[-10.25, 3.95, 0.8]} rotation={[0, Math.PI * 1.1843 / 2, 0]} visible={uiStep === 3 ? true : false} />
+              {/* </Debug> */}
             </Physics>
           </Suspense>
           <Stats />

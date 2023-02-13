@@ -15,17 +15,24 @@ export function Shoes7(props) {
   
   const model_6_url = 'assets/models/shoes/transformer.glb'
 
-  const { scene } = useLoader(GLTFLoader, model_6_url)
-  const copiedScene = useMemo(() => scene.clone(), [scene])
+  // const { scene } = useLoader(GLTFLoader, model_6_url)
+  // const copiedScene = useMemo(() => scene.clone(), [scene])
+
+  const models_configs = useStore((s) => s.models_configs)
+
+  const { scene } = useLoader(GLTFLoader, models_configs.model_11.url_model_11)
 
   return (
     <primitive 
       {...props}       
-      object={copiedScene} 
+      object={scene} 
       position={props.position}
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 11 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))} 
     >
     </primitive>
   )

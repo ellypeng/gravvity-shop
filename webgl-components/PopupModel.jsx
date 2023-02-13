@@ -37,6 +37,7 @@ const Loading = (props) => {
 const PopupModel = (props) => {
   const popUpModelIndex = useStore((s) => s.popupModel)
   const popUpSubIndex = useStore((s) => s.popupSub)
+  const models_configs = useStore((s) => s.models_configs)
   const [hovered, setHover] = useState(false)
   const [image, setImage] = useState({ preview: "", raw: "" });
 
@@ -201,34 +202,202 @@ const PopupModel = (props) => {
   const changeSizeStore = () => {
     const index = indexRef.current
     if (index === 1)
-      useStore.setState({ model_1_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_1: {
+            ...state.models_configs.model_1,
+            size_model_1: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 2)
-      useStore.setState({ model_2_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_2: {
+            ...state.models_configs.model_2,
+            size_model_2: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 3)
-      useStore.setState({ model_3_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_3: {
+            ...state.models_configs.model_3,
+            size_model_3: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 4)
-      useStore.setState({ model_4_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_4: {
+            ...state.models_configs.model_4,
+            size_model_4: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 5)
-      useStore.setState({ test_size_url: data })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_5: {
+            ...state.models_configs.model_5,
+            size_model_5: parseFloat(data) 
+        }
+      } }  ))
     else if (index === 6)
-      useStore.setState({ model_6_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_6: {
+            ...state.models_configs.model_6,
+            size_model_6: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 7)
-      useStore.setState({ model_7_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_7: {
+            ...state.models_configs.model_7,
+            size_model_7: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 8)
-      useStore.setState({ model_8_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_8: {
+            ...state.models_configs.model_8,
+            size_model_8: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 9)
-      useStore.setState({ model_9_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_9: {
+            ...state.models_configs.model_9,
+            size_model_9: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 10)
-      useStore.setState({ model_10_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_10: {
+            ...state.models_configs.model_10,
+            size_model_10: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 11)
-      useStore.setState({ model_11_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_11: {
+            ...state.models_configs.model_11,
+            size_model_11: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 12)
-      useStore.setState({ model_12_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_12: {
+            ...state.models_configs.model_12,
+            size_model_12: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 13)
-      useStore.setState({ model_13_url: response.productmodel.url })
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_13: {
+            ...state.models_configs.model_13,
+            size_model_13: parseFloat(data)
+          }
+        }
+      }))
     else if (index === 14)
-      useStore.setState({ model_14_url: response.productmodel.url })
-
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_14: {
+            ...state.models_configs.model_14,
+            size_model_14: parseFloat(data)
+          }
+        }
+      }))
+    else if (index === 15)
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_15: {
+            ...state.models_configs.model_15,
+            size_model_15: parseFloat(data)
+          }
+        }
+      }))
+    else if (index === 16)
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_16: {
+            ...state.models_configs.model_16,
+            size_model_16: parseFloat(data)
+          }
+        }
+      }))
+    else if (index === 17)
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_14: {
+            ...state.models_configs.model_17,
+            size_model_17: parseFloat(data)
+          }
+        }
+      }))
+    else if (index === 18)
+      useStore.setState(state => ({
+        ...state,
+        models_configs: {
+          ...state.models_configs,
+          model_18: {
+            ...state.models_configs.model_18,
+            size_model_18: parseFloat(data)
+          }
+        }
+      }))
   }
 
   return (

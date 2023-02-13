@@ -13,9 +13,11 @@ export function ShelfMiddle(props) {
   useCursor(hovered)
   const ref = useRef()
   
-  const model_5_url = 'assets/models/shoes/darth_vader.glb'
-  // console.log('model - 5 url spider man = ', model_5_url)
-  const { scene } = useLoader(GLTFLoader, model_5_url)
+  // const model_5_url = 'assets/models/shoes/darth_vader.glb'
+
+  const models_configs = useStore((s) => s.models_configs)
+
+  const { scene } = useLoader(GLTFLoader, models_configs.model_8.url_model_8)
 
   return (
     <primitive 
@@ -25,7 +27,7 @@ export function ShelfMiddle(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
-      onClick={() => { useStore.setState({ popupModel: 2 }) }}
+      onClick={() => { useStore.setState({ popupModel: 8 }) }}
       onPointerOver={() => (setHover(true))}
       onPointerOut={() => (setHover(false))} 
     >

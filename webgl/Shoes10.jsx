@@ -15,7 +15,10 @@ export function Shoes10(props) {
 
   const model_10_url = 'assets/models/clothes/heavy_venom.glb'
 
-  const { scene } = useLoader(GLTFLoader, model_10_url)
+
+  const models_configs = useStore((s) => s.models_configs)
+
+  const { scene } = useLoader(GLTFLoader, models_configs.model_14.url_model_14)
 
   return (
     <primitive 
@@ -25,6 +28,9 @@ export function Shoes10(props) {
       position={props.position} 
       scale={props.scale} 
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 14 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))} 
     >
     </primitive>
   )

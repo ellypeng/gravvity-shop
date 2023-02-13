@@ -13,9 +13,9 @@ export function Shoes5(props) {
   const ref = useRef()
   const router = useRouter()
   
-  const test_model_url = useStore((s) => s.test_model_url)
+  const models_configs = useStore((s) => s.models_configs)
 
-  const { scene } = useLoader(GLTFLoader, test_model_url)
+  const { scene } = useLoader(GLTFLoader, models_configs.model_9.url_model_9)
   
   return (
     <primitive 
@@ -25,7 +25,7 @@ export function Shoes5(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
-      onClick={() => { useStore.setState({ popupModel: 5 }) }}
+      onClick={() => { useStore.setState({ popupModel: 9 }) }}
       onPointerOver={() => (setHover(true))}          
       onPointerOut={() => (setHover(false))} 
     >

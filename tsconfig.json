@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "webgl/Shoes1.jsx", "webgl/Shoes2.jsx", "webgl/Shoes14.jsx", "webgl/Shoes12.jsx", "webgl/Shoes10.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/webgl/Shoes1.jsx", "src/webgl/Shoes2.jsx", "src/webgl/Shoes14.jsx", "src/webgl/Shoes12.jsx", "src/webgl/Shoes10.jsx"],
   "exclude": ["node_modules"]
 }

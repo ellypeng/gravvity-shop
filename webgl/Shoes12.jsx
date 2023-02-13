@@ -15,8 +15,11 @@ export function Shoes12(props) {
 
   const model_12_url = 'assets/models/clothes/marble.glb'
 
-  const { scene } = useLoader(GLTFLoader, model_12_url)
   // console.log('scene = ', scene)
+
+  const models_configs = useStore((s) => s.models_configs)
+
+  const { scene } = useLoader(GLTFLoader, models_configs.model_15.url_model_15)
 
   return (
     <primitive 

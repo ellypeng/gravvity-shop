@@ -13,9 +13,10 @@ export function Shoes16(props) {
   useCursor(hovered)
   const ref = useRef()
   
-  const model_1_url = 'assets/models/comic/spiderman.glb'
+  const models_configs = useStore((s) => s.models_configs)
 
-  const { scene } = useLoader(GLTFLoader, model_1_url)
+  const { scene } = useLoader(GLTFLoader, models_configs.model_4.url_model_4)
+
   return (
     <primitive 
       {...props}       
@@ -24,6 +25,9 @@ export function Shoes16(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 4 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))} 
     >
     </primitive>
         

@@ -13,11 +13,12 @@ export function Shoes1(props) {
   useCursor(hovered)
   const ref = useRef()
   
-  const model_1_url = 'assets/models/comic/dragonball_1.glb'
+  const models_configs = useStore((s) => s.models_configs)
 
-  const { scene } = useLoader(GLTFLoader, model_1_url)
-  const copiedScene = useMemo(() => scene.clone(), [scene])
-  const copiedScene1 = useMemo(() => scene.clone(), [scene])
+  const { scene } = useLoader(GLTFLoader, models_configs.model_1.url_model_1)
+
+  // const copiedScene = useMemo(() => scene.clone(), [scene])
+  // const copiedScene1 = useMemo(() => scene.clone(), [scene])
 
   return (
     <primitive 
@@ -27,6 +28,9 @@ export function Shoes1(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 1 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))} 
     >
     </primitive>
         

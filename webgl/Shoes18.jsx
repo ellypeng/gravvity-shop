@@ -13,9 +13,9 @@ export function Shoes18(props) {
   useCursor(hovered)
   const ref = useRef()
   
-  const model_1_url = 'assets/models/comic/venom.glb'
+  const models_configs = useStore((s) => s.models_configs)
 
-  const { scene } = useLoader(GLTFLoader, model_1_url)
+  const { scene } = useLoader(GLTFLoader, models_configs.model_6.url_model_6)
 
   return (
     <primitive 
@@ -25,6 +25,9 @@ export function Shoes18(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
+      onClick={() => { useStore.setState({ popupModel: 6 }) }}
+      onPointerOver={() => (setHover(true))}
+      onPointerOut={() => (setHover(false))} 
     >
     </primitive>
         
