@@ -55,6 +55,8 @@ import PopupVideo from '../webgl-components/PopupVideo'
 import PopupModel from '../webgl-components/PopupModel';
 
 import VirtualWorldUI from "../webgl-components/VirtualWorldUI";
+import ShoppingCart from "../webgl-components/ShoppingCart";
+import { useCurrentUser } from '../lib/user';
 
 function loadStorage() {
   if (localStorage.getItem("hairStyle") !== null) {
@@ -134,23 +136,29 @@ const Loading = (props: any) => {
 
 export default function Home() {
 
-  const router = useRouter();
   //the default model of ready player me
   // const [urlModel, setUrlModel] = useState('https://models.readyplayer.me/63c18a08b7a4f54ed11e2d67.glb')
   const [urlModel, setUrlModel] = useState('https://api.readyplayer.me/v1/avatars/6317749e666e9239d9d464d9.glb')
-
-
+  const { data: { user } = {}, mutate, isValidating } = useCurrentUser();
+  const router = useRouter()
   const uiStep: number = useStore((s) => s.uiStep);
   const goto: string = useStore((s) => s.goto);
   const test: any = useStore((s) => s.testPoster);
-  const test_size_url: any = useStore((s) => s.test_size_url);
   const rotacionTes: any = useStore((s) => s.testRotacion);
   const models_configs: any = useStore((s) => s.models_configs)
+
   useEffect(() => {
     loadStorage();
   }, []);
 
-  // console.log(models_configs)
+  useEffect(() => {
+    if (isValidating) return;
+    if (!user) router.replace('/signup');
+    console.log('user = ', user)
+  }, [user, router, isValidating]);
+
+  console.log(user);
+  
 
   const handleDataFromChild = (data: any) => {
     setUrlModel(data)
@@ -226,6 +234,7 @@ export default function Home() {
 
               <ShelfLeft position={models_configs.model_7.position_7} scale={models_configs.model_7.size_model_7}
                 rotation={models_configs.model_7.rotation_7} visible={uiStep === 3 ? true : false} />
+              
               <ShelfMiddle position={models_configs.model_8.position_8} scale={models_configs.model_7.size_model_7}
                 rotation={models_configs.model_8.rotation_8} visible={uiStep === 3 ? true : false} />
 
@@ -236,21 +245,28 @@ export default function Home() {
               {/* lighening */}
               <Shoes6 position={models_configs.model_10.position_10} scale={models_configs.model_10.size_model_10}
                 rotation={models_configs.model_10.rotation_10} visible={uiStep === 3 ? true : false} />
+              
               <Shoes7 position={models_configs.model_11.position_11} scale={models_configs.model_11.size_model_11}
                 rotation={models_configs.model_11.rotation_11} visible={uiStep === 3 ? true : false} />
 
               <Shoes8 position={models_configs.model_12.position_12} scale={models_configs.model_12.size_model_12}
                 rotation={models_configs.model_12.rotation_12} visible={uiStep === 3 ? true : false} />
+              
               <Shoes9 position={models_configs.model_13.position_13} scale={models_configs.model_13.size_model_13}
                 rotation={models_configs.model_13.rotation_13} visible={uiStep === 3 ? true : false} />
+              
               <Shoes10 position={models_configs.model_14.position_14} scale={models_configs.model_14.size_model_14}
-                rotation={models_configs.model_14.rotation_14}  visible={uiStep === 3 ? true : false} />
+                rotation={models_configs.model_14.rotation_14} visible={uiStep === 3 ? true : false} />
+              
               <Shoes11 position={models_configs.model_15.position_15} scale={models_configs.model_15.size_model_15}
                 rotation={models_configs.model_15.rotation_15} visible={uiStep === 3 ? true : false} />
+              
               <Shoes12 position={models_configs.model_16.position_16} scale={models_configs.model_16.size_model_16}
                 rotation={models_configs.model_16.rotation_16} visible={uiStep === 3 ? true : false} />
-              <Shoes13 position={models_configs.model_17.position_17} scale={models_configs.model_16.size_model_16}
+              
+              <Shoes13 position={models_configs.model_17.position_17} scale={models_configs.model_17.size_model_17}
                 rotation={models_configs.model_17.rotation_17} visible={uiStep === 3 ? true : false} />
+              
               <Shoes14 position={models_configs.model_18.position_18} scale={models_configs.model_18.size_model_18}
                 rotation={models_configs.model_18.rotation_18} visible={uiStep === 3 ? true : false} />
 
@@ -282,6 +298,7 @@ export default function Home() {
       <PopupVideo />
       <PopupModel />
       <Loading />
+      <ShoppingCart />
     </main>
   )
 }

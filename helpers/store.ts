@@ -42,6 +42,7 @@ const useStore = create(() => {
     popupModel: 0,
     popupVideo: 0,
     popupEdit: 0,
+    popupCart: 0,
 
     poster_1_url: '',
     poster_2_url: '',
@@ -83,7 +84,7 @@ const useStore = create(() => {
       model_2: {
         size_model_2: 1,
         url_model_2: 'assets/models/comic/ironman.glb',
-        position_2: [2.2, 1.4, -11.1],
+        position_2: [0.4, 1.4, -11.1],
         rotation_2: [0, Math.PI, 0]
       },
       model_3: {
@@ -161,13 +162,13 @@ const useStore = create(() => {
       model_15: {
         size_model_15: 0.03,
         url_model_15: 'assets/models/clothes/loose.glb',
-        position_15: [12.17, -1, 14.9],
-        rotation_15: [0, Math.PI, 0]
+        position_15: [14.87, -1, 13.8],
+        rotation_15: [0, Math.PI * 5 / 4, 0]
       },
       model_16: {
-        size_model_16: 0.12,
+        size_model_16: 0.03,
         url_model_16: 'assets/models/clothes/marble.glb',
-        position_16: [0, 2.2, 2],
+        position_16: [12.17, -1, 14.9],
         rotation_16: [0, Math.PI, 0]
       },
       model_17: {
@@ -179,8 +180,8 @@ const useStore = create(() => {
       model_18: {
         size_model_18: 0.03,
         url_model_18: 'assets/models/clothes/spider.glb',
-        position_18: [9.87, -1, 14.9],
-        rotation_18: [0, Math.PI, 0]
+        position_18: [7.6, -1, 14.9],
+        rotation_18: [Math.PI / 2, Math.PI, 0]
       },
     },
 

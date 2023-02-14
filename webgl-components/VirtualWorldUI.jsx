@@ -36,7 +36,7 @@ const VirtualWorldUI = (props) => {
   let playerPosition = useStore((s) => s.playerPosition)
   let test1 = useStore((s) => s.testPoster);
   let testRotacion = useStore((s) => s.testRotacion);
-
+  const popupCart = useStore((s) => s.popupCart)
   const [test3, setTest3] = useState(test1);
 
   const moveControl = (data) => {
@@ -127,17 +127,15 @@ const VirtualWorldUI = (props) => {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test5(1) }}>mover rotacion +</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test(1, 1) }}>mover en el eje y</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test(0, 1) }}>mover en el eje x</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test(2, 1) }}>mover en el eje z</button>
-        </div>
-        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test6(1) }}>mover en rotacion -</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test2(1, 1) }}>mover en el eje -y</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test2(0, 1) }}>mover en el eje -x</button>
-          <button style={{ width: 'auto', height: 20, backgroundColor: '#fff', margin: 10 }} onClick={() => { test2(2, 1) }}>mover en el eje -z</button>
+        <div className='cursor-pointer' style={{
+          textAlign: 'center', display: 'flex', position: 'fixed', top: 10, right: 10
+          , backgroundColor: '#A4A4A4' , borderRadius: '25%', flexDirection: 'row', alignItems: 'center',
+        }} onClick={() => { useStore.setState({ popupCart : 1})}}>
+          <Image className="m-3" src={'/assets/parcel.png'} width={30} height={30} alt={'logo'} />
+          <span style={{
+            marginRight: 10, backgroundColor: '#000', color: '#FFF', borderRadius: '50%', width: 20, height: 20,
+            flexDirection: 'row', alignItems: 'center' ,display: 'flex', justifyContent:'center'
+          }}>0</span>
         </div>
 
         <div className='relative w-[150px] h-[150px] mr-12 cursor-move min-[564px]:hidden'>
@@ -170,8 +168,6 @@ const VirtualWorldUI = (props) => {
       {/* over 564px */}
       <div className='absolute right-8 bottom-9 block min-[564px]:hidden' style={{ opacity: props.opacity }}>
         <div className='emoji-groups relative w-12'>
-          <button style={{ width: 30, height: 20, backgroundColor: '#fff' }} onClick={() => { test() }}>Hola 1</button>
-
 
           {/* <EmojiItem url="assets/img/media/emoji_raising_hands.png" emojiIndex={1} />
           <EmojiItem url="assets/img/media/emoji_clap.png" emojiIndex={2} />

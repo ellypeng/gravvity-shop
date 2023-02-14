@@ -22,10 +22,13 @@ export function Shoes7(props) {
 
   const { scene } = useLoader(GLTFLoader, models_configs.model_11.url_model_11)
 
+  const copiedScene = useMemo(() => scene.clone(), [scene])
+
+
   return (
     <primitive 
       {...props}       
-      object={scene} 
+      object={copiedScene} 
       position={props.position}
       rotation={props.rotation}
       scale={props.scale} 

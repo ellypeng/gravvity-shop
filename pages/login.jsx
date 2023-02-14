@@ -20,15 +20,15 @@ export default function SignUp() {
 
     const uiStep = useStore((s) => s.uiStep)
     const { data: { user } = {}, mutate, isValidating } = useCurrentUser();
-
-    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false)
+  
 
-    // useEffect(() => {
-    //     if (isValidating) return;
-    //     if (user) useStore.setState({ uiStep: 2 });
-    //     console.log('user = ', user)
-    // }, [user, isValidating]);
+    useEffect(() => {
+        if (isValidating) return;
+        if (user) router.replace('/dashboard');
+        console.log('user = ', user)
+    }, [user, router, isValidating]);
 
     const onSubmit = useCallback(
         async (event) => {

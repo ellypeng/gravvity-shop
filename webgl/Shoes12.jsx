@@ -19,7 +19,7 @@ export function Shoes12(props) {
 
   const models_configs = useStore((s) => s.models_configs)
 
-  const { scene } = useLoader(GLTFLoader, models_configs.model_15.url_model_15)
+  const { scene } = useLoader(GLTFLoader, models_configs.model_16.url_model_16)
 
   return (
     <primitive 
