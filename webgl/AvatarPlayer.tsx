@@ -70,6 +70,7 @@ export default function Avatar(props: any) {
 
     // let found = animations.find((element) => element.name === emojiAnimation);
     let found = animations.findIndex((x: { name: string; }) => x.name === emojiAnimation)
+    console.log('estramos en el useEffect', found)
 
     if (emojiAnimation !== "01 idle") {
       var action = mixer.clipAction(animations[found]);
@@ -114,21 +115,21 @@ export default function Avatar(props: any) {
       }
     } else {
       let found = animations.findIndex((x: { name: string; }) => x.name === actionName.action)
-      var action = mixer.clipAction(animations[found]);
-      action.fadeIn(0.5);
-      action.play();
-      const animate = () => {
-        requestAnimationFrame(animate)
-        var delta = clock.getDelta();
-        mixer.update(delta);
-      }
-      animate();
+      // var action = mixer.clipAction(animations[found]);
+      // action.fadeIn(0.5);
+      // action.play();
+      // const animate = () => {
+      //   requestAnimationFrame(animate)
+      //   var delta = clock.getDelta();
+      //   mixer.update(delta);
+      // }
+      // animate();
 
-      return () => {
-        action.stop()
-        action.fadeOut(0.5)
+      // return () => {
+      //   action.stop()
+      //   action.fadeOut(0.5)
 
-      }
+      // }
 
     }
   }, [actionName, props.urlPlayer])
