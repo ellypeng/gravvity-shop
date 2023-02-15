@@ -154,10 +154,8 @@ export default function Home() {
   useEffect(() => {
     if (isValidating) return;
     if (!user) router.replace('/signup');
-    console.log('user = ', user)
   }, [user, router, isValidating]);
 
-  console.log(user);
   
 
   const handleDataFromChild = (data: any) => {
@@ -165,11 +163,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log('------- uiStep --------', uiStep)
   }, [uiStep])
 
   useEffect(() => {
-    console.log('------- goto --------', goto)
   }, [goto])
 
   return (

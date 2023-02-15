@@ -11,7 +11,6 @@ export function Poster7(props:any) {
     useCursor(hovered)
 
     const poster_7_url: string = useStore((s) => s.poster_7_url)
-    console.log('poster_7_url = ', poster_7_url)
 
     useEffect(() => {
         const changeTexture = () => {

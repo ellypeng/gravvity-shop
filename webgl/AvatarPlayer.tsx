@@ -70,7 +70,6 @@ export default function Avatar(props: any) {
 
     // let found = animations.find((element) => element.name === emojiAnimation);
     let found = animations.findIndex((x: { name: string; }) => x.name === emojiAnimation)
-    console.log('estramos en el useEffect', found)
 
     if (emojiAnimation !== "01 idle") {
       var action = mixer.clipAction(animations[found]);
@@ -113,6 +112,24 @@ export default function Avatar(props: any) {
         // action.fadeOut(0.5)
         action.stop()
       }
+    } else {
+      let found = animations.findIndex((x: { name: string; }) => x.name === actionName.action)
+      // var action = mixer.clipAction(animations[found]);
+      // action.fadeIn(0.5);
+      // action.play();
+      // const animate = () => {
+      //   requestAnimationFrame(animate)
+      //   var delta = clock.getDelta();
+      //   mixer.update(delta);
+      // }
+      // animate();
+
+      // return () => {
+      //   action.stop()
+      //   action.fadeOut(0.5)
+
+      // }
+
     }
   }, [actionName, props.urlPlayer])
 
@@ -121,54 +138,53 @@ export default function Avatar(props: any) {
     // if (emojiAnimation !== "01 idle")
     //   return
     let newActionName: string
+
     controlRef.current.autoRotate = true
-
-
     if (left)
-    controlRef.current.autoRotateSpeed = -90
-  else if (right)
-    controlRef.current.autoRotateSpeed = 90
-  else if (joystickDistance && 90 !== joystickAngle && joystickAngle !== 270)
-    controlRef.current.autoRotateSpeed = l
-  else
-    controlRef.current.autoRotateSpeed = 0
+      controlRef.current.autoRotateSpeed = -90
+    else if (right)
+      controlRef.current.autoRotateSpeed = 90
+    else if (joystickDistance && 90 !== joystickAngle && joystickAngle !== 270)
+      controlRef.current.autoRotateSpeed = l
+    else
+      controlRef.current.autoRotateSpeed = 0
 
     if (forward || (joystickDistance > 0 && joystickAngle < 180)) {
       newActionName = "02 walk"
-      var action = mixer.clipAction(animations[9]);
-      action.play();
-      const animate = () => {
-        requestAnimationFrame(animate)
-        var delta = clock.getDelta();
-        mixer.update(delta);
-      }
-      animate();
+      // var action = mixer.clipAction(animations[9]);
+      // action.play();
+      // const animate = () => {
+      //   requestAnimationFrame(animate)
+      //   var delta = clock.getDelta();
+      //   mixer.update(delta);
+      // }
+      // animate();
 
-      if (actionName.action === "01 idle") {
-        return () => {
-          action.stop()
-          action.fadeOut(0.5)
-        }
-      }
+      // if (actionName.action === "01 idle") {
+      //   return () => {
+      //     action.stop()
+      //     action.fadeOut(0.5)
+      //   }
+      // }
 
     }
     else if (backward || (joystickDistance > 0 && joystickAngle > 180)) {
       newActionName = "04 walk back"
-      var action = mixer.clipAction(animations[10]);
-      action.play();
-      const animate = () => {
-        requestAnimationFrame(animate)
-        var delta = clock.getDelta();
-        mixer.update(delta);
-      }
-      animate();
+      // var action = mixer.clipAction(animations[10]);
+      // action.play();
+      // const animate = () => {
+      //   requestAnimationFrame(animate)
+      //   var delta = clock.getDelta();
+      //   mixer.update(delta);
+      // }
+      // animate();
 
-      if (actionName.action === "01 idle") {
-        return () => {
-          action.stop()
-          action.fadeOut(0.5)
-        }
-      }
+      // if (actionName.action === "01 idle") {
+      //   return () => {
+      //     action.stop()
+      //     action.fadeOut(0.5)
+      //   }
+      // }
 
       // return () => {
       //   action.stop()
@@ -177,21 +193,21 @@ export default function Avatar(props: any) {
     }
     else if (!forward && !backward && (left || right || joystickAngle === 0 || joystickAngle === 180)) {
       newActionName = "05_turn"
-      var action = mixer.clipAction(animations[8]);
-      action.stop().play();
-      const animate = () => {
-        requestAnimationFrame(animate)
-        var delta = clock.getDelta();
-        mixer.update(delta);
-      }
-      animate();
+      // var action = mixer.clipAction(animations[8]);
+      // action.stop().play();
+      // const animate = () => {
+      //   requestAnimationFrame(animate)
+      //   var delta = clock.getDelta();
+      //   mixer.update(delta);
+      // }
+      // animate();
 
-      if (actionName.action === "01 idle") {
-        return () => {
-          action.stop()
-          action.fadeOut(0.5)
-        }
-      }
+      // if (actionName.action === "01 idle") {
+      //   return () => {
+      //     action.stop()
+      //     action.fadeOut(0.5)
+      //   }
+      // }
 
 
       return () => {
@@ -202,7 +218,12 @@ export default function Avatar(props: any) {
     else {
       newActionName = "01 idle"
     }
-    setAction({ action: newActionName, during: true })
+
+
+
+
+    setAction({ action: newActionName, during: true });
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer, props.avatarSetting, playerCameraRotation])

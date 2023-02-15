@@ -54,14 +54,11 @@ export default function ShoppingCart() {
     },
   ];
 
-
-
-  console.log(popupCart)
   return (
     <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden "
       style={{
         display: popupCart !== 0 ? 'block' : 'none', zIndex: 2000000000,
-        backgroundColor: '#FFF', bottom: 0
+        backgroundColor: '#FAFAFA', bottom: 0
       }}
     >
       <div style={{ height: '15%', backgroundColor: '#FF0000', display: 'flex' }}>
@@ -88,6 +85,38 @@ export default function ShoppingCart() {
           <div>
             <h1>CheckOut Details</h1>
           </div>
+
+          {/* <div className="dropdown">
+        <button onClick={this.handleToggleDropdown}>
+          Abrir dropdown
+        </button>
+        {isOpen && (
+          <div className="dropdown-menu">
+            <input
+              type="text"
+              placeholder="Input 1"
+              value={input1}
+            />
+            <input
+              type="text"
+              placeholder="Input 2"
+              value={input2}
+            />
+            <input
+              type="text"
+              placeholder="Input 3"
+              value={input3}
+            />
+            <input
+              type="text"
+              placeholder="Input 4"
+              value={input4}
+              onChange={(event) => this.handleInputChange(event, 'input4')}
+            />
+          </div>
+        )}
+      </div> */}
+
         </div>
         <div style={{ backgroundColor: '#FFF', padding: '25px', height: '100%', width: '50%',  display: 'flex', flexDirection: 'column'}}>
           <h1 style={{fontWeight: 'bold', marginLeft: 10, marginTop: 10, fontSize: '28px'}}>My Order</h1>
