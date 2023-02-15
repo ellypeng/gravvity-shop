@@ -37,15 +37,7 @@ const PlayerDesktop = (props: any) => {
     if (emojiAnimation !== "01 idle") return
         const direction = new THREE.Vector3()
     if (joystickDistance === 0) {
-      console.log((Number(backward) - Number(forward)) * ((left || right)? 1 : Math.sqrt(2)))
-      let frontVector = new THREE.Vector3(0,0,0)
-
-      // const frontVector = new THREE.Vector3(0, 0, (Number(backward) - Number(forward)) * ((left || right)? 1 : Math.sqrt(2)))
-      // const sideVector = new THREE.Vector3(0, 0, 0)
-      // direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(4).applyEuler(camera.rotation)
-      if (forward) {
-        frontVector = new THREE.Vector3(0, 0, -1.4142135623730951)
-      }
+      const frontVector = new THREE.Vector3(0, 0, (Number(backward) - Number(forward)) * ((left || right)? 1 : Math.sqrt(2)))
       const sideVector = new THREE.Vector3(0, 0, 0)
       direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(4).applyEuler(camera.rotation)
     } else {
