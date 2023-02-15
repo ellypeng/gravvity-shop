@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 import useStore from '../helpers/store'
 
@@ -63,25 +64,37 @@ export default function ShoppingCart() {
         backgroundColor: '#FFF', bottom: 0
       }}
     >
-      <div style={{ height: '15%', backgroundColor: '#FF0000' }}></div>
+      <div style={{ height: '15%', backgroundColor: '#FF0000', display: 'flex' }}>
+        <div style={{textAlign: 'center'}}>
+        <Image className="uilogo pt-8 pr-1 mr-4" style={{marginRight: 10}} src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
+        </div>
+        <div>
+        <h3 style={{position: 'absolute', right: 0}}>Help?</h3>
+        </div>
+      </div>
       <div style={{ display: 'flex', flexDirection: 'row', height: '85%' }}>
-        <div style={{ backgroundColor: '#000', height: '100%', width: '50%' }}>
+        <div style={{ backgroundColor: '#FFF', padding: '25px', height: '100%', width: '50%', display: 'flex', flexDirection: 'column' }}>
+          <div>
           <button style={{
             backgroundColor: 'white', border: '1px solid #d3d3d3',
             borderRadius: '4px', padding: '8px 16px',
             display: 'flex', alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer'
-          }} onClick={() => {useStore.setState({popupCart: 0})}}>
+          }} onClick={() => { useStore.setState({ popupCart: 0 }) }}>
             Back
           </button>
+          </div>
+          <div>
+            <h1>CheckOut Details</h1>
+          </div>
         </div>
-        <div style={{ backgroundColor: '#EEE', height: '100%', width: '50%' }}>
-          <h1>Carrito de compras</h1>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 , marginRight: 10, marginLeft: 15 }}>
+        <div style={{ backgroundColor: '#FFF', padding: '25px', height: '100%', width: '50%',  display: 'flex', flexDirection: 'column'}}>
+          <h1 style={{fontWeight: 'bold', marginLeft: 10, marginTop: 10, fontSize: '28px'}}>My Order</h1>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15 ,  }}>
             {cartItems1.map(item => (
 
-              <li style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+              <li style={{ display: "flex", alignItems: "center", marginBottom: "10px" , }}>
                 <div>
                   <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "10px" }} />
                 </div>
@@ -103,52 +116,57 @@ export default function ShoppingCart() {
                 <div className="cart-item-price">${item.price}</div>
               </li> */}
           </ul>
-          <div style={{ display: "flex" }}>
-            <input
-              type="text"
-              placeholder="add discount code"
+          <div style={{ display: "flex" , width: '100%'}}>
+            <input type="text" placeholder="add discount code"
               style={{
-                padding: "5px",
-                backgroundColor: "white",
-                color: "black",
-                border: "3px solid black",
-                width: '80%',
-                margin: 15,
-                borderRadius: 10,
+                padding: "5px", backgroundColor: "white",
+                color: "black", border: "3px solid black",
+                width: '80%', margin: 15, borderRadius: 10,
               }}
             />
             <button
               style={{
-                backgroundColor: "black",
-                color: "white",
-                border: "none",
-                padding: "5px 10px",
-                borderRadius: "10px",
-                width: '20%',
-                margin: 15,
+                backgroundColor: "black", color: "white", border: "none",
+                padding: "5px 10px", borderRadius: "10px", width: '20%', margin: 15,
               }}
             >
               Apply
             </button>
           </div>
- 
-          <div style={{display: 'flex'}}>
-          <table >
-            <tbody>
-              <tr>
-                <td style={{ textAlign: 'left', borderTop: '1px solid black' }}>Subtotal</td>
-                <td style={{ textAlign: 'right', borderTop: '1px solid black' }}>$10</td>
-              </tr>
-              <tr>
-                <td style={{ textAlign: 'left', borderTop: '1px solid black' }}>Tax</td>
-                <td style={{ textAlign: 'right', borderTop: '1px solid black' }}>$10</td>
-              </tr>
-              <tr>
-                <td style={{ textAlign: 'left', borderTop: '1px solid black' }}>Shipping</td>
-                <td style={{ textAlign: 'right', borderTop: '1px solid black' }}>$10</td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div style={{ display: 'flex' , width: '100%' , flexDirection: 'column', }}>
+            <div style={{ display: 'flex',  justifyContent: 'center'}}>
+              <table style={{ width: '90%', margin: 10 }} >
+                <tbody>
+                  <tr>
+                    <td style={{ textAlign: 'left', padding: '5px'}}>Subtotal</td>
+                    <td style={{ textAlign: 'right', padding: '5px'}}>$10</td>
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: 'left',padding: '5px' }}>Tax</td>
+                    <td style={{ textAlign: 'right',padding: '5px' }}>$10</td>
+                  </tr>
+                  <tr style={{ paddingBottom: 20 }}>
+                    <td style={{ textAlign: 'left', borderBottom: '3px solid black', padding: '5px' }}>Shipping</td>
+                    <td style={{ textAlign: 'right', borderBottom: '3px solid black', padding: '5px' }}>$10</td>
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: 'left', padding: '5px' }}>Total amount</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}>$ 1000.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style={{display: 'flex' , justifyContent: 'center'}}>
+              <button
+                style={{
+                  backgroundColor: "black", color: "white", border: "none",
+                  padding: "10px 10px", borderRadius: "10px", width: '90%', marginLeft: 15 , marginRight: 15
+                }}
+              >
+                Make payment
+              </button>
+            </div>
           </div>
         </div>
       </div>

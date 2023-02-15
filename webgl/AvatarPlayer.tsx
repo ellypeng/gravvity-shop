@@ -117,11 +117,7 @@ export default function Avatar(props: any) {
   }, [actionName, props.urlPlayer])
 
   useEffect(() => {
-    console.log('estamo llegando al useeefect')
     const l = joystickDistance * Math.cos(Math.PI * joystickAngle / 180) * 1.8
-
-
-
     // if (emojiAnimation !== "01 idle")
     //   return
     let newActionName: string
@@ -206,16 +202,10 @@ export default function Avatar(props: any) {
     else {
       newActionName = "01 idle"
     }
-
-
-
-
-
-
     setAction({ action: newActionName, during: true })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer, props.avatarSetting])
+  }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer, props.avatarSetting, playerCameraRotation])
 
   let originalIntersectsPoint = new THREE.Vector3(0, 0, 0)
 
