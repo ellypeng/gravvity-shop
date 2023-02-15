@@ -39,9 +39,12 @@ export default function Avatar(props: any) {
   const raycaster = useThree(state => state.raycaster)
   const sceneMeshes: any[] = [];
   const clock = new THREE.Clock();
-  const mixer = new THREE.AnimationMixer(gltf.scene);
+  // const mixer = new THREE.AnimationMixer(gltf.scene);
   let dir = new THREE.Vector3();
   let intersects = [];
+
+
+  const mixer = new THREE.AnimationMixer(gltf.scene);
 
 
   useEffect(() => {
@@ -96,51 +99,53 @@ export default function Avatar(props: any) {
 
 
   useEffect(() => {
+    let found = animations.findIndex((x: { name: string; }) => x.name === actionName.action)
+    console.log(found)
+
     if (actionName.action === "01 idle") {
+      console.log('entramos en el if')
+
+
       var action = mixer.clipAction(animations[5]);
-      action.stop()
+
       action.play();
-      // action.fadeIn(0.5);
       const animate = () => {
         requestAnimationFrame(animate)
         var delta = clock.getDelta();
         mixer.update(delta);
       }
       animate();
-
-
       return () => {
-        // action.fadeOut(0.5)
         action.stop()
       }
+
     } else {
-      let found = animations.findIndex((x: { name: string; }) => x.name === actionName.action)
-      // var action = mixer.clipAction(animations[found]);
-      // action.fadeIn(0.5);
-      // action.play();
-      // const animate = () => {
-      //   requestAnimationFrame(animate)
-      //   var delta = clock.getDelta();
-      //   mixer.update(delta);
-      // }
-      // animate();
 
-      // return () => {
-      //   action.stop()
-      //   action.fadeOut(0.5)
-
-      // }
-
+      console.log('entramos en el else')
+      var action = mixer.clipAction(animations[found]);
+      mixer.stopAllAction() 
+      action.play();
+      const animate = () => {
+        requestAnimationFrame(animate)
+        var delta = clock.getDelta();
+        mixer.update(delta);
+      }
+      animate();
+      return () => {
+        action.stop()
+      }
     }
-  }, [actionName, props.urlPlayer])
+
+  }, [actionName.action, props.urlPlayer])
 
   useEffect(() => {
     const l = joystickDistance * Math.cos(Math.PI * joystickAngle / 180) * 1.8
     // if (emojiAnimation !== "01 idle")
     //   return
     let newActionName: string
-
     controlRef.current.autoRotate = true
+
+
     if (left)
       controlRef.current.autoRotateSpeed = -90
     else if (right)
@@ -187,10 +192,6 @@ export default function Avatar(props: any) {
       //   }
       // }
 
-      // return () => {
-      //   action.stop()
-      //   action.fadeOut(0.5)
-      // }
     }
     else if (!forward && !backward && (left || right || joystickAngle === 0 || joystickAngle === 180)) {
       newActionName = "05_turn"
@@ -210,21 +211,11 @@ export default function Avatar(props: any) {
       //   }
       // }
 
-
-      return () => {
-        // action.stop()
-        // action.fadeOut(0.5)
-      }
     }
     else {
       newActionName = "01 idle"
     }
-
-
-
-
-    setAction({ action: newActionName, during: true });
-
+    setAction({ action: newActionName, during: true })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer, props.avatarSetting, playerCameraRotation])
