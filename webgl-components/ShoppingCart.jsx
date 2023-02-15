@@ -1,10 +1,13 @@
 import Image from 'next/image';
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { useState } from 'react'
 import useStore from '../helpers/store'
 
 
 
 export default function ShoppingCart() {
+  const router = useRouter()
+
   const popupCart = useStore((s) => s.popupCart)
   const cartItems = [
     {
@@ -54,6 +57,40 @@ export default function ShoppingCart() {
     },
   ];
 
+
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  const [isOpen3, setIsOpen3] = useState(false);
+
+  const [input1, setInput1] = useState('');
+  const [input2, setInput2] = useState('');
+  const [input3, setInput3] = useState('');
+  const [input4, setInput4] = useState('');
+
+  const handleToggleDropdown = () => {
+    setInput1(!isOpen1);
+  };
+
+  const handleInputChange = (event, inputName) => {
+    switch (inputName) {
+      case 'input1':
+        setInput1(event.target.value);
+        break;
+      case 'input2':
+        setInput2(event.target.value);
+        break;
+      case 'input3':
+        setInput3(event.target.value);
+        break;
+      case 'input4':
+        setInput4(event.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden "
       style={{
@@ -61,119 +98,268 @@ export default function ShoppingCart() {
         backgroundColor: '#FAFAFA', bottom: 0
       }}
     >
-      <div style={{ height: '15%', backgroundColor: '#FF0000', display: 'flex' }}>
-        <div style={{textAlign: 'center'}}>
-        <Image className="uilogo pt-8 pr-1 mr-4" style={{marginRight: 10}} src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
+      <div style={{ height: '10%', backgroundColor: '#FF0000', display: 'flex' }}>
+        <div style={{ textAlign: 'center' }}>
+          <Image className="" style={{ marginRight: 10 }} src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
         </div>
         <div>
-        <h3 style={{position: 'absolute', right: 0}}>Help?</h3>
+          <h3 style={{ position: 'absolute', right: 0 }}>Help?</h3>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', height: '85%' }}>
-        <div style={{ backgroundColor: '#FFF', padding: '25px', height: '100%', width: '50%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', height: '90%' }}>
+        <div style={{ padding: '25px', height: '100%', width: '50%', display: 'flex', flexDirection: 'column' }}>
           <div>
-          <button style={{
-            backgroundColor: 'white', border: '1px solid #d3d3d3',
-            borderRadius: '4px', padding: '8px 16px',
-            display: 'flex', alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer'
-          }} onClick={() => { useStore.setState({ popupCart: 0 }) }}>
-            Back
-          </button>
+            <button style={{
+              backgroundColor: 'white', border: '1px solid #d3d3d3',
+              borderRadius: '4px', padding: '8px 16px',
+              display: 'flex', alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
+            }} onClick={() => { useStore.setState({ popupCart: 0 }) }}>
+              Back
+            </button>
           </div>
           <div>
             <h1>CheckOut Details</h1>
           </div>
 
-          {/* <div className="dropdown">
-        <button onClick={this.handleToggleDropdown}>
-          Abrir dropdown
-        </button>
-        {isOpen && (
-          <div className="dropdown-menu">
-            <input
-              type="text"
-              placeholder="Input 1"
-              value={input1}
-            />
-            <input
-              type="text"
-              placeholder="Input 2"
-              value={input2}
-            />
-            <input
-              type="text"
-              placeholder="Input 3"
-              value={input3}
-            />
-            <input
-              type="text"
-              placeholder="Input 4"
-              value={input4}
-              onChange={(event) => this.handleInputChange(event, 'input4')}
-            />
+          <div className="dropdown" style={{}}>
+            <button onClick={() => { setIsOpen1(!isOpen1) }} style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: '#FFF',
+              color: 'black',
+              borderrRadius: '10px',
+              padding: '12px 24px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              borderBottom: !isOpen1 ? '2px solid #000' : 'none',
+              width: '100%'
+            }}>
+              <span style={{ fontWeight: 'bold' }}>Personal details</span>
+              <span style={{ marginLeft: '10px' }}> {!isOpen1 ? '+' : '-'}</span>
+
+            </button>
+            {isOpen1 && (
+              <div className="dropdown-menu" style={{
+                display: 'flex', flexWrap: 'wrap',
+                alignContent: 'center', justifyContent: 'center',
+                alignItems: 'center', borderBottom: isOpen1 ? '2px solid #000' : 'none',
+                padding: '10px'
+              }}>
+                <div>
+                  <input type="text" placeholder="Input 1"
+                    value={input1}
+                    onChange={(event) => handleInputChange(event, 'input1')}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Input 1"
+                    value={input1}
+                    onChange={(event) => handleInputChange(event, 'input1')}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Input 1"
+                    value={input1}
+                    onChange={(event) => handleInputChange(event, 'input1')}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Input 1"
+                    value={input1}
+                    onChange={(event) => handleInputChange(event, 'input1')}
+                  />
+                </div>
+
+              </div>
+            )}
           </div>
-        )}
-      </div> */}
+
+          <div className="dropdown" style={{}}>
+            <button onClick={() => { setIsOpen2(!isOpen2) }} style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: '#FFF',
+              color: 'black',
+              borderrRadius: '10px',
+              padding: '12px 24px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              borderBottom: !isOpen2 ? '2px solid #000' : 'none',
+              width: '100%'
+            }}>
+              <span style={{ fontWeight: 'bold' }}>Shipping details</span>
+              <span style={{ marginLeft: '10px' }}> {!isOpen2 ? '+' : '-'} </span>
+
+            </button>
+
+            {isOpen2 && (
+              <div className="dropdown-menu" style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderBottom: isOpen2 ? '2px solid #000' : 'none',
+                padding: '10px'
+
+              }}>
+                <input
+                  type="text"
+                  placeholder="Input 1"
+                  value={input1}
+                  onChange={(event) => handleInputChange(event, 'input1')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 2"
+                  value={input2}
+                  onChange={(event) => handleInputChange(event, 'input2')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 3"
+                  value={input3}
+                  onChange={(event) => handleInputChange(event, 'input3')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 4"
+                  value={input4}
+                  onChange={(event) => handleInputChange(event, 'input4')}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="dropdown" style={{}}>
+
+            <button onClick={() => { setIsOpen3(!isOpen3) }} style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              backgroundColor: '#FFF',
+              color: 'black',
+              borderrRadius: '10px',
+              padding: '12px 24px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              width: '100%',
+              borderBottom: !isOpen3 ? '2px solid #000' : 'none',
+            }}>
+              <span style={{ fontWeight: 'bold' }}>Payment details</span>
+              <span style={{ marginLeft: '10px' }}> {!isOpen3 ? '+' : '-'}</span>
+
+            </button>
+
+            {isOpen3 && (
+              <div className="dropdown-menu" style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderBottom: isOpen3 ? '2px solid #000' : 'none',
+                padding: '10px'
+              }}>
+                <input
+                  type="text"
+                  placeholder="Input 1"
+                  value={input1}
+                  onChange={(event) => handleInputChange(event, 'input1')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 2"
+                  value={input2}
+                  onChange={(event) => handleInputChange(event, 'input2')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 3"
+                  value={input3}
+                  onChange={(event) => handleInputChange(event, 'input3')}
+                />
+                <input
+                  type="text"
+                  placeholder="Input 4"
+                  value={input4}
+                  onChange={(event) => handleInputChange(event, 'input4')}
+                />
+              </div>
+            )}
+          </div>
 
         </div>
-        <div style={{ backgroundColor: '#FFF', padding: '25px', height: '100%', width: '50%',  display: 'flex', flexDirection: 'column'}}>
-          <h1 style={{fontWeight: 'bold', marginLeft: 10, marginTop: 10, fontSize: '28px'}}>My Order</h1>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15 ,  }}>
-            {cartItems1.map(item => (
-
-              <li style={{ display: "flex", alignItems: "center", marginBottom: "10px" , }}>
-                <div>
-                  <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "10px" }} />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <span style={{ fontWeight: "bold" }}>{item.category}</span>
-                    <span style={{ fontWeight: "bold" }}>${item.price}</span>
-                  </div>
-                  <h3 style={{ marginBottom: "5px" }}>{item.name}</h3>
-                  <p style={{ display: "inline-block", marginRight: "10px" }}>Cantidad: {item.quantity}</p>
-                </div>
-              </li>
-
-            ))}
-
-            {/* <li key={item.id} style={{ display: 'grid', gridTemplateColumns: '1fr 100px',
-            alignItems: 'center', padding: 10, borderBottom:' 1px solid #ccc'}}>
-                <div className="cart-item-name">{item.name}</div>
-                <div className="cart-item-price">${item.price}</div>
-              </li> */}
-          </ul>
-          <div style={{ display: "flex" , width: '100%'}}>
-            <input type="text" placeholder="add discount code"
-              style={{
-                padding: "5px", backgroundColor: "white",
-                color: "black", border: "3px solid black",
-                width: '80%', margin: 15, borderRadius: 10,
-              }}
-            />
-            <button
-              style={{
-                backgroundColor: "black", color: "white", border: "none",
-                padding: "5px 10px", borderRadius: "10px", width: '20%', margin: 15,
-              }}
-            >
-              Apply
-            </button>
+        <div style={{
+          backgroundColor: '#000', borderRadius: '25px',
+          padding: '0px 30px', height: '100%', width: '50%', display: 'flex',
+          flexDirection: 'column', justifyContent: 'center', border: "1px solid #000",
+        }}>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '90%' }}>
+              <h1 style={{ fontWeight: 'bold', fontSize: '28px' }}>
+                My Order
+              </h1>
+            </div>
           </div>
+          <div style={{ width: '100%', display: 'flex' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
+              {cartItems1.map(item => (
 
-          <div style={{ display: 'flex' , width: '100%' , flexDirection: 'column', }}>
-            <div style={{ display: 'flex',  justifyContent: 'center'}}>
+                <li style={{ display: "flex", alignItems: "center", marginBottom: "10px", }}>
+                  <div>
+                    <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <span style={{ fontWeight: "bold" }}>{item.category}</span>
+                      <span style={{ fontWeight: "bold" }}>${item.price}</span>
+                    </div>
+                    <h3 style={{ marginBottom: "5px" }}>{item.quantity} x {item.name}</h3>
+                  </div>
+                </li>))}
+            </ul>
+          </div>
+          <div style={{ display: "flex", width: '100%', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', width: '90%' }}>
+              <input type="text" placeholder="add discount code"
+                style={{
+                  padding: "5px 15px", backgroundColor: "white",
+                  color: "black", border: "1px solid #DEDEDE",
+                  width: '80%', marginTop: 15, marginBottom: 15, borderRadius: 10,
+                }}
+              />
+              <button
+                style={{
+                  backgroundColor: "black", color: "white", border: "none",
+                  padding: "5px 10px", borderRadius: "10px", width: '20%', marginLeft: 15, marginTop: 15, marginBottom: 15
+                }}
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+          <div style={{ display: 'flex', width: '100%', flexDirection: 'column', }}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
               <table style={{ width: '90%', margin: 10 }} >
                 <tbody>
                   <tr>
-                    <td style={{ textAlign: 'left', padding: '5px'}}>Subtotal</td>
-                    <td style={{ textAlign: 'right', padding: '5px'}}>$10</td>
+                    <td style={{ textAlign: 'left', padding: '5px' }}>Subtotal</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}>$10</td>
                   </tr>
                   <tr>
-                    <td style={{ textAlign: 'left',padding: '5px' }}>Tax</td>
-                    <td style={{ textAlign: 'right',padding: '5px' }}>$10</td>
+                    <td style={{ textAlign: 'left', padding: '5px' }}>Tax</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}>$10</td>
                   </tr>
                   <tr style={{ paddingBottom: 20 }}>
                     <td style={{ textAlign: 'left', borderBottom: '3px solid black', padding: '5px' }}>Shipping</td>
@@ -186,11 +372,11 @@ export default function ShoppingCart() {
                 </tbody>
               </table>
             </div>
-            <div style={{display: 'flex' , justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
               <button
                 style={{
                   backgroundColor: "black", color: "white", border: "none",
-                  padding: "10px 10px", borderRadius: "10px", width: '90%', marginLeft: 15 , marginRight: 15
+                  padding: "10px 10px", borderRadius: "10px", width: '90%', marginLeft: 15, marginRight: 15
                 }}
               >
                 Make payment
@@ -199,6 +385,6 @@ export default function ShoppingCart() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
