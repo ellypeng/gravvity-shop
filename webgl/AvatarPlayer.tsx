@@ -98,6 +98,7 @@ export default function Avatar(props: any) {
   useEffect(() => {
     if (actionName.action === "01 idle") {
       var action = mixer.clipAction(animations[5]);
+      action.stop()
       action.play();
       // action.fadeIn(0.5);
       const animate = () => {
@@ -107,6 +108,7 @@ export default function Avatar(props: any) {
       }
       animate();
 
+
       return () => {
         // action.fadeOut(0.5)
         action.stop()
@@ -115,21 +117,26 @@ export default function Avatar(props: any) {
   }, [actionName, props.urlPlayer])
 
   useEffect(() => {
+    console.log('estamo llegando al useeefect')
     const l = joystickDistance * Math.cos(Math.PI * joystickAngle / 180) * 1.8
 
-    controlRef.current.autoRotate = true
-    if (left)
-      controlRef.current.autoRotateSpeed = -90
-    else if (right)
-      controlRef.current.autoRotateSpeed = 90
-    else if (joystickDistance && 90 !== joystickAngle && joystickAngle !== 270)
-      controlRef.current.autoRotateSpeed = l
-    else
-      controlRef.current.autoRotateSpeed = 0
 
-    if (emojiAnimation !== "01 idle")
-      return
+
+    // if (emojiAnimation !== "01 idle")
+    //   return
     let newActionName: string
+    controlRef.current.autoRotate = true
+
+
+    if (left)
+    controlRef.current.autoRotateSpeed = -90
+  else if (right)
+    controlRef.current.autoRotateSpeed = 90
+  else if (joystickDistance && 90 !== joystickAngle && joystickAngle !== 270)
+    controlRef.current.autoRotateSpeed = l
+  else
+    controlRef.current.autoRotateSpeed = 0
+
     if (forward || (joystickDistance > 0 && joystickAngle < 180)) {
       newActionName = "02 walk"
       var action = mixer.clipAction(animations[9]);
@@ -140,10 +147,14 @@ export default function Avatar(props: any) {
         mixer.update(delta);
       }
       animate();
-      return () => {
-        action.stop()
-        action.fadeOut(0.5)
+
+      if (actionName.action === "01 idle") {
+        return () => {
+          action.stop()
+          action.fadeOut(0.5)
+        }
       }
+
     }
     else if (backward || (joystickDistance > 0 && joystickAngle > 180)) {
       newActionName = "04 walk back"
@@ -156,10 +167,17 @@ export default function Avatar(props: any) {
       }
       animate();
 
-      return () => {
-        action.stop()
-        action.fadeOut(0.5)
+      if (actionName.action === "01 idle") {
+        return () => {
+          action.stop()
+          action.fadeOut(0.5)
+        }
       }
+
+      // return () => {
+      //   action.stop()
+      //   action.fadeOut(0.5)
+      // }
     }
     else if (!forward && !backward && (left || right || joystickAngle === 0 || joystickAngle === 180)) {
       newActionName = "05_turn"
@@ -172,19 +190,32 @@ export default function Avatar(props: any) {
       }
       animate();
 
+      if (actionName.action === "01 idle") {
+        return () => {
+          action.stop()
+          action.fadeOut(0.5)
+        }
+      }
+
 
       return () => {
         // action.stop()
-        action.fadeOut(0.5)
+        // action.fadeOut(0.5)
       }
     }
     else {
       newActionName = "01 idle"
     }
 
+
+
+
+
+
     setAction({ action: newActionName, during: true })
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer])
+  }, [forward, backward, left, right, joystickDistance, joystickAngle, props.urlPlayer, props.avatarSetting])
 
   let originalIntersectsPoint = new THREE.Vector3(0, 0, 0)
 

@@ -52,7 +52,7 @@ export default function SignUp() {
                     progress: undefined,
                     theme: "light",
                 });
-                router.replace('/template')
+                // router.replace('/template')
                
             } catch (e) {
                 toast.error(e.message, {

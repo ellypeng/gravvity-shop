@@ -26,7 +26,7 @@ export default function SignUp() {
 
     useEffect(() => {
         if (isValidating) return;
-        if (user) router.replace('/dashboard');
+        if (user !== null) router.replace('/dashboard');
         console.log('user = ', user)
     }, [user, router, isValidating]);
 

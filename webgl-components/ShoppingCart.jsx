@@ -72,7 +72,7 @@ export default function ShoppingCart() {
             display: 'flex', alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer'
-          }}>
+          }} onClick={() => {useStore.setState({popupCart: 0})}}>
             Back
           </button>
         </div>
