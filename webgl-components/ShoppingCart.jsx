@@ -98,7 +98,9 @@ export default function ShoppingCart() {
         backgroundColor: '#FAFAFA', bottom: 0
       }}
     >
-      <div style={{ height: '10%', backgroundColor: '#FF0000', display: 'flex' }}>
+      {/*aqui empieza cuadro "header"*/}
+
+      <div className='header'>
         <div style={{ textAlign: 'center' }}>
           <Image className="" style={{ marginRight: 10 }} src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
         </div>
@@ -106,16 +108,11 @@ export default function ShoppingCart() {
           <h3 style={{ position: 'absolute', right: 0 }}>Help?</h3>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', height: '90%' }}>
-        <div style={{ padding: '25px', height: '100%', width: '50%', display: 'flex', flexDirection: 'column' }}>
+      <div className='pannelShopping'>
+        {/*A  aqui empieza "<CheckOut>" */}
+        <div className='checkOut'>
           <div>
-            <button style={{
-              backgroundColor: 'white', border: '1px solid #d3d3d3',
-              borderRadius: '4px', padding: '8px 16px',
-              display: 'flex', alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer'
-            }} onClick={() => { useStore.setState({ popupCart: 0 }) }}>
+            <button className='buttonBack' onClick={() => { useStore.setState({ popupCart: 0 }) }}>
               Back
             </button>
           </div>
@@ -300,11 +297,8 @@ export default function ShoppingCart() {
           </div>
 
         </div>
-        <div style={{
-          backgroundColor: '#000', borderRadius: '25px',
-          padding: '0px 30px', height: '100%', width: '50%', display: 'flex',
-          flexDirection: 'column', justifyContent: 'center', border: "1px solid #000",
-        }}>
+        {/*aqui empieza cuadro "My Order"*/}
+        <div className='myOrder'>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div style={{ width: '90%' }}>
               <h1 style={{ fontWeight: 'bold', fontSize: '28px' }}>

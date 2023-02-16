@@ -56,7 +56,7 @@ const Env = (props: any) => {
       <group ref={Floor_Ref} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[300, 300]} />
       </group>
-      <mesh ref={Wall2_Ref} />
+      {/* <mesh ref={Wall2_Ref} />
       <mesh ref={Wall4_Ref} />
       <mesh ref={Wall5_Ref} />
       <mesh ref={Wall6_Ref} />
@@ -76,7 +76,7 @@ const Env = (props: any) => {
       <mesh ref={Cylinder6_Ref} />
       <mesh ref={Product1_Ref} />
       <mesh ref={Product2_Ref} />
-      <mesh ref={Product3_Ref} />
+      <mesh ref={Product3_Ref} /> */}
       
       <primitive object={gltf.scene} position={props.position} scale={props.scale} visible={props.visible}/>
     </>

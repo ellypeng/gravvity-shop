@@ -254,7 +254,7 @@ export default function Avatar(props: any) {
   );
   wall1.position.set(-10.2, 3, 1.);
   wall1.rotateY(Math.PI * 1.19 / 2);
-  scene.add(wall1);
+  // scene.add(wall1);
   sceneMeshes.push(wall1);
 
   let plane21 = new THREE.PlaneGeometry(1.5, 20);
@@ -270,7 +270,7 @@ export default function Avatar(props: any) {
   );
   wall21.position.set(-6.8, -2, 11);
   wall21.rotateY(Math.PI * 0.7 / 11 - Math.PI / 4 + Math.PI);
-  scene.add(wall21);
+  // scene.add(wall21);
   sceneMeshes.push(wall21);
 
 
@@ -286,7 +286,7 @@ export default function Avatar(props: any) {
   );
   wall2.position.set(-6.5, -2, 12);
   wall2.rotateY(Math.PI * 0.7 / 11 + Math.PI / 4);
-  scene.add(wall2);
+  // scene.add(wall2);
   sceneMeshes.push(wall2);
 
   let plane3 = new THREE.PlaneGeometry(3.2, 20);
@@ -300,7 +300,7 @@ export default function Avatar(props: any) {
   );
   wall3.position.set(-8.3, -2, 11.8);
   wall3.rotateY(Math.PI * 1 / 11 - Math.PI / 4);
-  scene.add(wall3);
+  // scene.add(wall3);
   sceneMeshes.push(wall3);
 
   // Lobby poster 1 wall
@@ -315,7 +315,7 @@ export default function Avatar(props: any) {
   );
   wall4.position.set(-14.56, -2, 18.5);
   wall4.rotateY(Math.PI * 1 / 11 + Math.PI / 4);
-  scene.add(wall4);
+  // scene.add(wall4);
   sceneMeshes.push(wall4);
 
   let plane5 = new THREE.PlaneGeometry(14, 20);
@@ -328,7 +328,7 @@ export default function Avatar(props: any) {
   );
   wall5.position.set(-11.3, -2, 23.5);
   wall5.rotateY(Math.PI * 1 / 11 - Math.PI / 4 + Math.PI);
-  scene.add(wall5);
+  // scene.add(wall5);
   sceneMeshes.push(wall5);
 
   // Lobby poster 2 wall
@@ -344,7 +344,7 @@ export default function Avatar(props: any) {
   // wall6.position.set(-5.3, -2, 23);
   wall6.position.set(-2.96, -2, 23);
   wall6.rotateY(Math.PI * 1 / 11 + Math.PI / 4 + Math.PI);
-  scene.add(wall6);
+  // scene.add(wall6);
   sceneMeshes.push(wall6);
 
   let plane7 = new THREE.PlaneGeometry(3.2, 20);
@@ -358,7 +358,7 @@ export default function Avatar(props: any) {
   );
   wall7.position.set(-1.7, -2, 15.2);
   wall7.rotateY(Math.PI * 1 / 11 - Math.PI / 4);
-  scene.add(wall7);
+  // scene.add(wall7);
   sceneMeshes.push(wall7);
 
   let plane8 = new THREE.PlaneGeometry(1.5, 20);
@@ -372,7 +372,7 @@ export default function Avatar(props: any) {
   );
   wall8.position.set(-2.8, -2, 13.8);
   wall8.rotateY(Math.PI * 0.7 / 11 + Math.PI / 4 + Math.PI);
-  scene.add(wall8);
+  // scene.add(wall8);
   sceneMeshes.push(wall8);
 
   {/* Hall */ }
@@ -386,7 +386,7 @@ export default function Avatar(props: any) {
   );
   wall9.position.set(7.5, -2, 13.0);
   wall9.rotateY(Math.PI * 0.1 / 11 + Math.PI);
-  scene.add(wall9);
+  // scene.add(wall9);
   sceneMeshes.push(wall9);
 
   let plane10 = new THREE.PlaneGeometry(18, 20);
@@ -400,7 +400,7 @@ export default function Avatar(props: any) {
   );
   wall10.position.set(-2.5, -2, -12.7);
   wall10.rotateY(Math.PI * -0.05 / 11);
-  scene.add(wall10);
+  // scene.add(wall10);
   sceneMeshes.push(wall10);
 
   let plane11 = new THREE.PlaneGeometry(16, 20);
@@ -413,7 +413,7 @@ export default function Avatar(props: any) {
   );
   wall11.position.set(15.5, -2, -11.4);
   wall11.rotateY(Math.PI * -0.05 / 11);
-  scene.add(wall11);
+  // scene.add(wall11);
   sceneMeshes.push(wall11);
 
   let plane12 = new THREE.PlaneGeometry(20, 20);
@@ -427,7 +427,7 @@ export default function Avatar(props: any) {
   );
   wall12.position.set(16.26, -2, -3.8);
   wall12.rotateY(Math.PI * 0.05 / 11 + Math.PI / 2 + Math.PI);
-  scene.add(wall12);
+  // scene.add(wall12);
   sceneMeshes.push(wall12);
 
   let plane13 = new THREE.PlaneGeometry(8, 20);
@@ -440,7 +440,7 @@ export default function Avatar(props: any) {
   );
   wall13.position.set(13.5, -2, 7.3);
   wall13.rotateY(Math.PI * 0.05 / 11 + Math.PI / 2 + Math.PI);
-  scene.add(wall13);
+  // scene.add(wall13);
   sceneMeshes.push(wall13);
 
   let plane14 = new THREE.PlaneGeometry(20, 20);
@@ -453,7 +453,7 @@ export default function Avatar(props: any) {
   );
   wall14.position.set(17.8, -2, 8.4);
   wall14.rotateY(Math.PI * -0.5 / 11 + Math.PI / 4 + Math.PI);
-  scene.add(wall14);
+  // scene.add(wall14);
   sceneMeshes.push(wall14);
 
   let plane15 = new THREE.PlaneGeometry(3.4, 20);
@@ -466,7 +466,7 @@ export default function Avatar(props: any) {
   );
   wall15.position.set(14.8, -2, 2.5);
   wall15.rotateY(Math.PI * -0.5 / 11 + Math.PI / 4 + Math.PI);
-  scene.add(wall15);
+  // scene.add(wall15);
   sceneMeshes.push(wall15);
 
   let plane16 = new THREE.PlaneGeometry(6, 20);
@@ -479,7 +479,7 @@ export default function Avatar(props: any) {
   );
   wall16.position.set(14.8, -2, -9.5);
   wall16.rotateY(Math.PI * -0.5 / 11 - Math.PI / 4);
-  scene.add(wall16);
+  // scene.add(wall16);
   sceneMeshes.push(wall16);
 
   let plane17 = new THREE.PlaneGeometry(1.5, 20);
@@ -492,7 +492,7 @@ export default function Avatar(props: any) {
   );
   wall17.position.set(7., -2, -11.8);
   wall17.rotateY(Math.PI * -0.5 / 11 - Math.PI / 4 + Math.PI / 4);
-  scene.add(wall17);
+  // scene.add(wall17);
   sceneMeshes.push(wall17);
 
   let plane18 = new THREE.PlaneGeometry(8, 20);
@@ -505,7 +505,7 @@ export default function Avatar(props: any) {
   );
   wall18.position.set(-10., -2, -11.8);
   wall18.rotateY(Math.PI * -0.5 / 11 + Math.PI / 4);
-  scene.add(wall18);
+  // scene.add(wall18);
   sceneMeshes.push(wall18);
 
   return (
