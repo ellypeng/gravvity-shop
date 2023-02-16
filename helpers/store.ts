@@ -43,6 +43,7 @@ const useStore = create(() => {
     popupVideo: 0,
     popupEdit: 0,
     popupCart: 0,
+    popMyCart: 0,
 
     poster_1_url: '',
     poster_2_url: '',

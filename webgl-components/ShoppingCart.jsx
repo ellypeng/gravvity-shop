@@ -122,13 +122,13 @@ export default function ShoppingCart() {
       <div className='pannelShopping'>
         {/*A  aqui empieza "<CheckOut>" */}
         <div className='checkOut'>
-          <div style={{margin: '15px 0px'}}>
+          <div style={{ margin: '15px 0px' }}>
             <button className='buttonBack' onClick={() => { useStore.setState({ popupCart: 0 }) }}>
-              <span style={{fontSize: '18px' , marginRight: '5px'}}>
-              <FaChevronLeft />
+              <span style={{ fontSize: '18px', marginRight: '5px' }}>
+                <FaChevronLeft />
               </span>
-              <span style={{fontSize: '16px'}}>
-              Back to shop
+              <span style={{ fontSize: '16px' }}>
+                Back to shop
               </span>
             </button>
           </div>
