@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import useStore from '../helpers/store'
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcStripe, FaChevronLeft } from 'react-icons/fa';
+
 
 
 
@@ -55,6 +57,15 @@ export default function ShoppingCart() {
       category: "Accesorios",
       image: "https://via.placeholder.com/150x150?text=Gafas+de+sol",
     },
+    {
+      id: 4,
+      name: "Gafas de luna",
+      price: 15.99,
+      quantity: 1,
+      category: "Accesorios",
+      image: "https://via.placeholder.com/150x150?text=Gafas+de+sol",
+    },
+
   ];
 
 
@@ -101,200 +112,269 @@ export default function ShoppingCart() {
       {/*aqui empieza cuadro "header"*/}
 
       <div className='header'>
-        <div style={{ textAlign: 'center' }}>
-          <Image className="" style={{ marginRight: 10 }} src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
+        <div className='logo1'>
+          <Image src={'/assets/img/Logo.png'} width={60} height={50} alt={'logo'} />
         </div>
-        <div>
-          <h3 style={{ position: 'absolute', right: 0 }}>Help?</h3>
+        <div className='boton'>
+          <button className='botonHelp' >Help ?</button>
         </div>
       </div>
       <div className='pannelShopping'>
         {/*A  aqui empieza "<CheckOut>" */}
         <div className='checkOut'>
-          <div>
+          <div style={{margin: '15px 0px'}}>
             <button className='buttonBack' onClick={() => { useStore.setState({ popupCart: 0 }) }}>
-              Back
+              <span style={{fontSize: '18px' , marginRight: '5px'}}>
+              <FaChevronLeft />
+              </span>
+              <span style={{fontSize: '16px'}}>
+              Back to shop
+              </span>
             </button>
           </div>
-          <div>
-            <h1>CheckOut Details</h1>
+          <div style={{ padding: '0px 20px' }}>
+            <h1 style={{ fontSize: 30, fontWeight: 500 }}>CheckOut Details</h1>
           </div>
 
-          <div className="dropdown" style={{}}>
-            <button onClick={() => { setIsOpen1(!isOpen1) }} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              backgroundColor: '#FFF',
-              color: 'black',
-              borderrRadius: '10px',
-              padding: '12px 24px',
-              fontSize: '16px',
-              cursor: 'pointer',
-              borderBottom: !isOpen1 ? '2px solid #000' : 'none',
-              width: '100%'
-            }}>
-              <span style={{ fontWeight: 'bold' }}>Personal details</span>
-              <span style={{ marginLeft: '10px' }}> {!isOpen1 ? '+' : '-'}</span>
+          <div className='panelCheck'>
+            <div className="dropdown" style={{}}>
+              <button className='dropButton' onClick={() => { setIsOpen1(!isOpen1) }}
+                style={{ borderBottom: !isOpen1 ? '1px solid #000' : 'none', }}>
+                <span style={{ fontWeight: 600, fontSize: 20 }}>Personal details</span>
+                <span style={{ marginLeft: '10px', fontSize: 30 }}> {!isOpen1 ? '+' : '-'}</span>
 
-            </button>
-            {isOpen1 && (
-              <div className="dropdown-menu" style={{
-                display: 'flex', flexWrap: 'wrap',
-                alignContent: 'center', justifyContent: 'center',
-                alignItems: 'center', borderBottom: isOpen1 ? '2px solid #000' : 'none',
-                padding: '10px'
+              </button>
+              {isOpen1 && (
+                <div className="dropdown-menu" >
+                  <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }} >
+                      <label className='labeldetails' htmlFor='firstName'>First Name</label>
+                      <input className='inputsDetails' type="text" placeholder="Input 1"
+                        value={input1}
+                        name='firtsName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='email'>Email:</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='email'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div>
+                  <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='lastName'>Last Name</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        value={input1}
+                        name='lastName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div >
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='phone'>Phone Number</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='phone'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div>
+
+                </div>
+              )}
+            </div>
+
+            <div className="dropdown" style={{}}>
+              <button className='dropButton'
+                onClick={() => { setIsOpen2(!isOpen2) }}
+                style={{ borderBottom: !isOpen2 ? '1px solid #000' : 'none' }}>
+                <span style={{ fontWeight: 600, fontSize: 20 }}>Shipping details</span>
+                <span style={{ marginLeft: '10px', fontSize: 30 }}> {!isOpen2 ? '+' : '-'} </span>
+              </button>
+              {isOpen2 && (
+                <div className="dropdown-menu">
+                  <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }} >
+                      <label className='labeldetails' htmlFor='firstName'>Country</label>
+                      {/* <input className='inputsDetails' type="text" placeholder="Input 1"
+                        value={input1}
+                        name='firtsName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      /> */}
+                      <select className='inputsDetails'>
+                        <option value="grapefruit">Grapefruit</option>
+                        <option value="lime">Lime</option>
+                        <option selected value="coconut">Coconut</option>
+                        <option value="mango">Mango</option>
+                      </select>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='email'>Addres line 1</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='email'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='email'>Province/state/region</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='email'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div>
+                  <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='lastName'>City</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        value={input1}
+                        name='lastName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div >
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='email'>Address line 2</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='email'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='phone'>Postal code</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='phone'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="dropdown" style={{}}>
+
+              <button className='dropButton' onClick={() => { setIsOpen3(!isOpen3) }} style={{
+                borderBottom: !isOpen3 ? '1px solid #000' : 'none',
               }}>
-                <div>
-                  <input type="text" placeholder="Input 1"
-                    value={input1}
-                    onChange={(event) => handleInputChange(event, 'input1')}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Input 1"
-                    value={input1}
-                    onChange={(event) => handleInputChange(event, 'input1')}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Input 1"
-                    value={input1}
-                    onChange={(event) => handleInputChange(event, 'input1')}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Input 1"
-                    value={input1}
-                    onChange={(event) => handleInputChange(event, 'input1')}
-                  />
-                </div>
+                <span style={{ fontWeight: 600, fontSize: 20 }}>Payment details</span>
+                <span style={{ marginLeft: '10px', fontSize: 30 }}> {!isOpen3 ? '+' : '-'}</span>
 
-              </div>
-            )}
+              </button>
+
+              {isOpen3 && (
+                <div className="dropdown-menu">
+                  <form className='form-car'>
+
+                    <label className='label-card' htmlFor="cardNumber">Número de tarjeta de crédito</label>
+                    <div className='inputs-div'>
+                      <input className='input-card1' type="text" placeholder="1234 1234 1234 1234" />
+                      <span className='card-icon'>
+                        <FaCcVisa />
+                      </span>
+                      <span className='card-icon'>
+                        <FaCcMastercard />
+                      </span>
+                      <span className='card-icon'>
+                        <FaCcAmex />
+                      </span>
+                      <span className='card-icon'>
+                        <FaCcStripe />
+                      </span>
+                    </div>
+                    <div className="cvv-card-holder-container">
+                      <div>
+                        <input className='input-card' placeholder='MM/YY' type="text" id="cvv" />
+                      </div>
+                      <div>
+                        <input className='input-card' placeholder='CVC' type="text" id="cardHolderName" />
+                      </div>
+                    </div>
+
+                    <label className='label-card' htmlFor="cardNumber">Número de tarjeta de crédito</label>
+                    <input className='input-card' type="text" id="cardNumber" />
+                  </form>
+
+                  {/* <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }} >
+                      <label className='labeldetails' htmlFor='firstName'>First Name</label>
+                      <input className='inputsDetails' type="text" placeholder="Input 1"
+                        value={input1}
+                        name='firtsName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='email'>Email:</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='email'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div>
+                  <div className='columna'>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='lastName'>Last Name</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        value={input1}
+                        name='lastName'
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div >
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <label className='labeldetails' htmlFor='phone'>Phone Number</label>
+                      <input
+                        className='inputsDetails'
+                        type="text"
+                        placeholder="Input 1"
+                        name='phone'
+                        value={input1}
+                        onChange={(event) => handleInputChange(event, 'input1')}
+                      />
+                    </div>
+                  </div> */}
+                </div>
+              )}
+            </div>
           </div>
 
-          <div className="dropdown" style={{}}>
-            <button onClick={() => { setIsOpen2(!isOpen2) }} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              backgroundColor: '#FFF',
-              color: 'black',
-              borderrRadius: '10px',
-              padding: '12px 24px',
-              fontSize: '16px',
-              cursor: 'pointer',
-              borderBottom: !isOpen2 ? '2px solid #000' : 'none',
-              width: '100%'
-            }}>
-              <span style={{ fontWeight: 'bold' }}>Shipping details</span>
-              <span style={{ marginLeft: '10px' }}> {!isOpen2 ? '+' : '-'} </span>
-
-            </button>
-
-            {isOpen2 && (
-              <div className="dropdown-menu" style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderBottom: isOpen2 ? '2px solid #000' : 'none',
-                padding: '10px'
-
-              }}>
-                <input
-                  type="text"
-                  placeholder="Input 1"
-                  value={input1}
-                  onChange={(event) => handleInputChange(event, 'input1')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 2"
-                  value={input2}
-                  onChange={(event) => handleInputChange(event, 'input2')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 3"
-                  value={input3}
-                  onChange={(event) => handleInputChange(event, 'input3')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 4"
-                  value={input4}
-                  onChange={(event) => handleInputChange(event, 'input4')}
-                />
-              </div>
-            )}
-          </div>
-
-          <div className="dropdown" style={{}}>
-
-            <button onClick={() => { setIsOpen3(!isOpen3) }} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              backgroundColor: '#FFF',
-              color: 'black',
-              borderrRadius: '10px',
-              padding: '12px 24px',
-              fontSize: '16px',
-              cursor: 'pointer',
-              width: '100%',
-              borderBottom: !isOpen3 ? '2px solid #000' : 'none',
-            }}>
-              <span style={{ fontWeight: 'bold' }}>Payment details</span>
-              <span style={{ marginLeft: '10px' }}> {!isOpen3 ? '+' : '-'}</span>
-
-            </button>
-
-            {isOpen3 && (
-              <div className="dropdown-menu" style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignContent: 'center',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderBottom: isOpen3 ? '2px solid #000' : 'none',
-                padding: '10px'
-              }}>
-                <input
-                  type="text"
-                  placeholder="Input 1"
-                  value={input1}
-                  onChange={(event) => handleInputChange(event, 'input1')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 2"
-                  value={input2}
-                  onChange={(event) => handleInputChange(event, 'input2')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 3"
-                  value={input3}
-                  onChange={(event) => handleInputChange(event, 'input3')}
-                />
-                <input
-                  type="text"
-                  placeholder="Input 4"
-                  value={input4}
-                  onChange={(event) => handleInputChange(event, 'input4')}
-                />
-              </div>
-            )}
-          </div>
 
         </div>
         {/*aqui empieza cuadro "My Order"*/}
@@ -306,11 +386,11 @@ export default function ShoppingCart() {
               </h1>
             </div>
           </div>
-          <div style={{ width: '100%', display: 'flex' }}>
+          <div style={{ width: '100%', display: 'flex', overflow: 'auto', height: 200, justifyContent: 'center' }}>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
               {cartItems1.map(item => (
 
-                <li style={{ display: "flex", alignItems: "center", marginBottom: "10px", }}>
+                <li style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
                   <div>
                     <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
                   </div>
@@ -328,7 +408,7 @@ export default function ShoppingCart() {
             <div style={{ display: 'flex', width: '90%' }}>
               <input type="text" placeholder="add discount code"
                 style={{
-                  padding: "5px 15px", backgroundColor: "white",
+                  padding: "15px 15px", backgroundColor: "white",
                   color: "black", border: "1px solid #DEDEDE",
                   width: '80%', marginTop: 15, marginBottom: 15, borderRadius: 10,
                 }}

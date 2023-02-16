@@ -231,7 +231,7 @@ export default function Home() {
               <ShelfLeft position={models_configs.model_7.position_7} scale={models_configs.model_7.size_model_7}
                 rotation={models_configs.model_7.rotation_7} visible={uiStep === 3 ? true : false} />
               
-              <ShelfMiddle position={models_configs.model_8.position_8} scale={models_configs.model_7.size_model_7}
+              <ShelfMiddle position={models_configs.model_8.position_8} scale={models_configs.model_8.size_model_8}
                 rotation={models_configs.model_8.rotation_8} visible={uiStep === 3 ? true : false} />
 
               {/* hall center */}

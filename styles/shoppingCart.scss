@@ -1,44 +1,92 @@
 .header {
     height: 10%;
+    // display: flex;
+    // background-color: #fff;
     display: flex;
-    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.logo1 {
+    display: flex;
+    align-items: center;
+}
+
+.boton {
+    margin-left: auto;
+}
+
+.botonHelp {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .pannelShopping {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
     height: 90%;
 }
 
 .checkOut {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
     padding: 25px;
-    height: 100%;
-    width: 50%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 .myOrder {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
     background-color: #fff;
     border-radius: 25px;
     padding: 0px 30px;
-    height: 100%;
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 25px 0px;
 }
 
+@media only screen and (min-width: 768px) {
+    .checkOut {
+        width: 50%;
+    }
+
+    .myOrder {
+        width: 50%;
+    }
+
+    .columna {
+        width: 50%;
+    }
+
+    .labeldetails {
+        margin: 10px 0px;
+    }
+
+    .panelCheck {
+        padding: 0px 20px;
+    }
+}
+
 .buttonBack {
     background-color: white;
-    border: 1px solid #d3d3d3;
     border-radius: 4px;
-    padding: 8px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin: 0px 24px;
 }
 
 .dropButton {
@@ -47,8 +95,125 @@
     justify-content: space-between;
     background-color: #fff;
     color: black;
-    border-radius: 10px;
-    padding: 12px 24px;
+    padding: 12px 24px 20px 0px;
     font-size: 16px;
     cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu {
+    // display: flex;
+    // flex-direction: row;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    transition: height 0.3s ease;
+    justify-content: center;
+}
+
+.dropdown {
+    margin: 15px 0px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.columna {
+    flex-grow: 1;
+    padding: 0px 15px;
+    box-sizing: border-box;
+}
+
+.inputsDetails {
+    border: 1px solid #DEDEDE;
+    border-radius: 10px;
+
+}
+
+.labeldetails {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 20px 0px 5px 0px;
+}
+
+.panelCheck {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-card {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.input-card {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.input-card1 {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.cvv-card-holder-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.cvv-card-holder-container div {
+    width: calc(50% - 8px);
+}
+
+.button-form {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-form:hover {
+    background-color: #0e74bd;
+}
+
+.card-icon {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    padding: 3px;
+    // font-size: 16px;
+}
+
+
+.inputs-div {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding-right: 10px;
+    border-bottom: none;
 }

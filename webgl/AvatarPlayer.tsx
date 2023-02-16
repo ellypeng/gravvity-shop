@@ -77,7 +77,6 @@ export default function Avatar(props: any) {
 
     if (emojiAnimation !== "01 idle") {
       var action = mixer.clipAction(animations[found]);
-      action.fadeIn(0.5);
       action.play();
       const animate = () => {
         requestAnimationFrame(animate)
@@ -92,8 +91,6 @@ export default function Avatar(props: any) {
 
       }
     }
-
-    // console.log(animations)
   }, [emojiAnimation])
 
 
@@ -104,10 +101,7 @@ export default function Avatar(props: any) {
 
     if (actionName.action === "01 idle") {
       console.log('entramos en el if')
-
-
       var action = mixer.clipAction(animations[5]);
-
       action.play();
       const animate = () => {
         requestAnimationFrame(animate)
@@ -120,10 +114,9 @@ export default function Avatar(props: any) {
       }
 
     } else {
-
       console.log('entramos en el else')
       var action = mixer.clipAction(animations[found]);
-      mixer.stopAllAction() 
+      // mixer.stopAllAction()
       action.play();
       const animate = () => {
         requestAnimationFrame(animate)
@@ -157,60 +150,12 @@ export default function Avatar(props: any) {
 
     if (forward || (joystickDistance > 0 && joystickAngle < 180)) {
       newActionName = "02 walk"
-      // var action = mixer.clipAction(animations[9]);
-      // action.play();
-      // const animate = () => {
-      //   requestAnimationFrame(animate)
-      //   var delta = clock.getDelta();
-      //   mixer.update(delta);
-      // }
-      // animate();
-
-      // if (actionName.action === "01 idle") {
-      //   return () => {
-      //     action.stop()
-      //     action.fadeOut(0.5)
-      //   }
-      // }
-
     }
     else if (backward || (joystickDistance > 0 && joystickAngle > 180)) {
       newActionName = "04 walk back"
-      // var action = mixer.clipAction(animations[10]);
-      // action.play();
-      // const animate = () => {
-      //   requestAnimationFrame(animate)
-      //   var delta = clock.getDelta();
-      //   mixer.update(delta);
-      // }
-      // animate();
-
-      // if (actionName.action === "01 idle") {
-      //   return () => {
-      //     action.stop()
-      //     action.fadeOut(0.5)
-      //   }
-      // }
-
     }
     else if (!forward && !backward && (left || right || joystickAngle === 0 || joystickAngle === 180)) {
       newActionName = "05_turn"
-      // var action = mixer.clipAction(animations[8]);
-      // action.stop().play();
-      // const animate = () => {
-      //   requestAnimationFrame(animate)
-      //   var delta = clock.getDelta();
-      //   mixer.update(delta);
-      // }
-      // animate();
-
-      // if (actionName.action === "01 idle") {
-      //   return () => {
-      //     action.stop()
-      //     action.fadeOut(0.5)
-      //   }
-      // }
-
     }
     else {
       newActionName = "01 idle"
