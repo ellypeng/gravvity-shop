@@ -66,6 +66,8 @@ const useStore = create(() => {
     logo_url: '',
     video_url: '',
 
+    shooping: [],
+
     model_1_url: '',
     model_2_url: '',
     model_3_url: '',

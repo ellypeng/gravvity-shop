@@ -22,9 +22,7 @@ export function VideoText(props: any) {
   useCursor(hovered)
 
   const video_url: string = useStore((s) => s.video_url)
-
-  console.log(video_url)
-
+  
   useEffect(() => {
     const changeTexture = () => {
       if (video_url === '') {

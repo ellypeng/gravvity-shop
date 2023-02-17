@@ -1,28 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaRegSun, FaRegTimesCircle, FaTimes } from 'react-icons/fa'
+import { toast, ToastContainer } from 'react-toastify'
 import useStore from '../helpers/store'
 
 export default function MyCart() {
   const popMyCart = useStore((s) => s.popMyCart)
   const popupIndex = useStore((s) => s.popupIndex)
+  const shooping = useStore((s) => s.shooping)
 
   const objetos = useStore((s) => s.objetos)
   const [ipOpen1, setIpOpen1] = useState(false);
   const [ipOpen2, setIpOpen2] = useState(false);
   const [data, DataSet] = useState(objetos)
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState("1");
+  const [test1, setTest1] = useState({});
 
-
-  const [test, setTest] = useState({
-    name: data[popMyCart].nombre,
-    category: data[popMyCart].categoria,
-    img: data[popMyCart].imagen.src,
-    price: data[popMyCart].precio,
-    cantidad: selectedValue
+  const notify = () => toast.success("Added to cart!", {
+    autoClose: 2000,
   });
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
+  const sumitChange = () => {
+    let test3 = {
+      id: shooping.length + 1,
+      name: data[popMyCart].nombre,
+      category: data[popMyCart].categoria,
+      img: data[popMyCart].imagen.src,
+      price: data[popMyCart].precio,
+      cantidad: selectedValue
+    }
+
+    useStore.setState((state) => ({
+      ...state,
+      shooping: [...state.shooping, test3]
+
+    }))
+
+    notify();
   };
 
   return (
@@ -32,6 +45,7 @@ export default function MyCart() {
         backgroundColor: '#FAFAFA', bottom: 10, right: 10, width: '100%', height: '100%', maxHeight: '416px', maxWidth: '500px',
         borderRadius: '25px', overflow: 'auto', flexDirection: 'column'
       }}>
+      <ToastContainer />
 
       <div>
         <div style={{ display: "flex", alignItems: "center", margin: "15px 0px 0px 0px", padding: '15px 15px 0px 15px' }}>
@@ -64,7 +78,7 @@ export default function MyCart() {
               padding: "15px 15px", border: "1px solid #DEDEDE",
               width: '80%', marginTop: 15, marginBottom: 15, borderRadius: 10,
               backgroundColor: "black", color: "white", display: 'flex', justifyContent: 'space-between'
-            }}>
+            }} onClick={() => { sumitChange() }}>
               <span style={{ color: 'white', fontFamily: 'Be Vietnam' }}>
                 Add to cart
               </span>

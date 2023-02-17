@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStore from '../helpers/store'
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcStripe, FaChevronLeft } from 'react-icons/fa';
 
@@ -11,26 +11,13 @@ export default function ShoppingCart() {
   const router = useRouter()
 
   const popupCart = useStore((s) => s.popupCart)
-  const cartItems = [
-    {
-      id: 1,
-      name: 'Camiseta',
-      price: 20.99,
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: 'Pantalones',
-      price: 45.99,
-      quantity: 2
-    },
-    {
-      id: 3,
-      name: 'Zapatos',
-      price: 80.99,
-      quantity: 1
-    }
-  ];
+  const shooping = useStore((s) => s.shooping)
+  const [state, setstate] = useState(shooping);
+
+  useEffect(() => {
+    console.log(shooping)
+    console.log(state.length === 0)
+  }, [shooping]);
 
   const cartItems1 = [
     {
@@ -387,22 +374,27 @@ export default function ShoppingCart() {
             </div>
           </div>
           <div style={{ width: '100%', display: 'flex', overflow: 'auto', height: 200, justifyContent: 'center' }}>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
-              {cartItems1.map(item => (
+            {shooping.length === 0 ? null :
 
-                <li key={item.id} style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
-                  <div>
-                    <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                      <span style={{ fontWeight: "bold" }}>{item.category}</span>
-                      <span style={{ fontWeight: "bold" }}>${item.price}</span>
+
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
+                {shooping.map(item => (
+
+                  <li key={item.id} style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
+                    <div>
+                      <img src={item.img} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
                     </div>
-                    <h3 style={{ marginBottom: "5px" }}>{item.quantity} x {item.name}</h3>
-                  </div>
-                </li>))}
-            </ul>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <span style={{ fontWeight: "bold" }}>{item.category}</span>
+                        <span style={{ fontWeight: "bold", fontSize: '20px' }}>${item.price}</span>
+                      </div>
+                      <h3 style={{ marginBottom: "5px" ,  fontSize: '20px'}}>{item.cantidad} x {item.name}</h3>
+                    </div>
+                  </li>))}
+              </ul>
+            }
+
           </div>
           <div style={{ display: "flex", width: '100%', justifyContent: 'center' }}>
             <div style={{ display: 'flex', width: '90%' }}>

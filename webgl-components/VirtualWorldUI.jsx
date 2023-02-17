@@ -129,12 +129,24 @@ const VirtualWorldUI = (props) => {
 
         <div className='cursor-pointer' style={{
           textAlign: 'center', display: 'flex', position: 'fixed', top: 10, right: 10
-          , backgroundColor: '#A4A4A4' , borderRadius: '25%', flexDirection: 'row', alignItems: 'center',
-        }} onClick={() => { useStore.setState({ popupCart : 1})}}>
+          , backgroundColor: '#A4A4A4', borderRadius: '25%', flexDirection: 'row', alignItems: 'center',
+        }} onClick={() => {
+          useStore.setState({
+            popupCart: 1,
+            popupSub: 0,
+            popupLogo: 0,
+            popupModel: 0,
+            popupVideo: 0,
+            popupEdit: 0,
+            popMyCart: 0,
+            popup: 0,
+            popupIndex: 0,
+          })
+        }}>
           <Image className="m-3" src={'/assets/parcel.png'} width={30} height={30} alt={'logo'} />
           <span style={{
             marginRight: 10, backgroundColor: '#000', color: '#FFF', borderRadius: '50%', width: 20, height: 20,
-            flexDirection: 'row', alignItems: 'center' ,display: 'flex', justifyContent:'center'
+            flexDirection: 'row', alignItems: 'center', display: 'flex', justifyContent: 'center'
           }}>0</span>
         </div>
 
