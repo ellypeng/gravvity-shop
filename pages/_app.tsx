@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.scss'
 import '../styles/animation.scss'
 import '../styles/shoppingCart.scss'
-
+import '../styles/myCart.scss'
 
 import { useCallback, useRef, useState, useEffect } from 'react';
 import { useCurrentUser } from '../lib/user';

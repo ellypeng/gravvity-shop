@@ -33,9 +33,9 @@ export function Poster4(props:any) {
                 position={props.position}
                 rotation={props.rotation}
                 visible={props.visible} 
-                // onClick={() => {useStore.setState({ popup: 4 })}}
-                // onPointerOver={() => (setHover(true))}          
-                // onPointerOut={() => (setHover(false))} 
+                onClick={() => { useStore.setState({ popMyCart: 4, popupIndex: 4 })}}
+                onPointerOver={() => (setHover(true))}          
+                onPointerOut={() => (setHover(false))} 
             >      
                 <planeGeometry args={[1, 1]}/>
                 <meshBasicMaterial map={textureFront.current} transparent={true} needsUpdate={true} alphaTest={0.2} />

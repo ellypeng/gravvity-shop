@@ -390,7 +390,7 @@ export default function ShoppingCart() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
               {cartItems1.map(item => (
 
-                <li style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
+                <li key={item.id} style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
                   <div>
                     <img src={item.image} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
                   </div>

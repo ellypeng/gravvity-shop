@@ -33,7 +33,7 @@ export function Poster6(props:any) {
                 position={props.position}
                 rotation={props.rotation}
                 visible={props.visible} 
-                onClick={() => {useStore.setState({ popup: 6 })}}
+                onClick={() => { useStore.setState({ popMyCart: 6, popupIndex: 6 })}}
                 onPointerOver={() => (setHover(true))}          
                 onPointerOut={() => (setHover(false))} 
             >      

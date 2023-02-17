@@ -15,7 +15,7 @@ export function Poster7(props:any) {
     useEffect(() => {
         const changeTexture = () => {
             if (poster_7_url === '') {
-                textureFront.current = new TextureLoader().load('assets/textures/Placement_1.png')
+                textureFront.current = new TextureLoader().load('assets/textures/Placement_2.png')
             } else {
                 textureFront.current = new TextureLoader().load(poster_7_url)
             }
@@ -32,7 +32,7 @@ export function Poster7(props:any) {
                 position={props.position}
                 rotation={props.rotation}
                 visible={props.visible} 
-                onClick={() => {useStore.setState({ popup: 7 })}}
+                onClick={() => { useStore.setState({ popMyCart: 7, popupIndex: 7 })}}
                 onPointerOver={() => (setHover(true))}          
                 onPointerOut={() => (setHover(false))} 
             >      

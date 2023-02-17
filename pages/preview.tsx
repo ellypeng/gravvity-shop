@@ -57,6 +57,7 @@ import PopupModel from '../webgl-components/PopupModel';
 import VirtualWorldUI from "../webgl-components/VirtualWorldUI";
 import ShoppingCart from "../webgl-components/ShoppingCart";
 import { useCurrentUser } from '../lib/user';
+import MyCart from '../webgl-components/MyCart'
 
 function loadStorage() {
   if (localStorage.getItem("hairStyle") !== null) {
@@ -294,6 +295,7 @@ export default function Home() {
       <PopupModel />
       <Loading />
       <ShoppingCart />
+      <MyCart />
     </main>
   )
 }

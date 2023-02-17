@@ -1,4 +1,13 @@
 import create from 'zustand'
+import ntf1 from '../public/assets/textures/NFT_wall_poster_1.png'
+import ntf2 from '../public/assets/textures/NFT_wall_poster_2.png'
+import ntf3 from '../public/assets/textures/NFT_wall_poster_3.png'
+import ntf4 from '../public/assets/textures/NFT_wall_poster_4.png'
+import ntf5 from '../public/assets/textures/NFT_wall_poster_5.png'
+import place1 from '../public/assets/textures/Placement_1.png'
+import place2 from '../public/assets/textures/Placement_2.png'
+
+
 
 const useStore = create(() => {
   return {
@@ -37,6 +46,7 @@ const useStore = create(() => {
     shoesColor: 0,
 
     popup: 0,
+    popupIndex: 0,
     popupSub: 0,
     popupLogo: 0,
     popupModel: 0,
@@ -128,7 +138,7 @@ const useStore = create(() => {
         size_model_9: 0.12,
         url_model_9: 'assets/models/shoes/freedom-gundam.glb',
         position_9: [0, 2.2, 2],
-        rotation_9: [0, Math.PI/180, 0]
+        rotation_9: [0, Math.PI / 180, 0]
       },
       model_10: {
         size_model_10: 0.004,
@@ -185,6 +195,17 @@ const useStore = create(() => {
         rotation_18: [Math.PI / 2, Math.PI, 0]
       },
     },
+
+    objetos: [
+      { "nombre": "Satan", "precio": 80.00, "categoria": "NFT", "imagen": ntf1 },
+      { "nombre": "Satan", "precio": 80.00, "categoria": "NFT", "imagen": ntf1 },
+      { "nombre": "Group Start", "precio": 25.00, "categoria": "NFT", "imagen": ntf2 },
+      { "nombre": "Manmon V.1", "precio": 15.00, "categoria": "NFT", "imagen": ntf3},
+      { "nombre": "Manmon V.2", "precio": 120.00, "categoria": "NFT", "imagen": ntf4 },
+      { "nombre": "Manmon V.3", "precio": 30.00, "categoria": "NFT", "imagen": ntf5 },
+      { "nombre": "Pack NFT", "precio": 100.00, "categoria": "NFT", "imagen": place1 },
+      { "nombre": "Shop Merch", "precio": 300.00, "categoria": "NFT", "imagen": place2 },
+    ],
 
 
     shoe_1_url: 'assets/models/shoes/shoes1.glb',
