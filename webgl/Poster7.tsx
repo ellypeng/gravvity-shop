@@ -15,7 +15,7 @@ export function Poster7(props:any) {
     useEffect(() => {
         const changeTexture = () => {
             if (poster_7_url === '') {
-                textureFront.current = new TextureLoader().load('assets/textures/poster2.jpg')
+                textureFront.current = new TextureLoader().load('assets/textures/Placement_1.png')
             } else {
                 textureFront.current = new TextureLoader().load(poster_7_url)
             }

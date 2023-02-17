@@ -16,7 +16,7 @@ export function Poster3(props:any) {
     useEffect(() => {
         const changeTexture = () => {
             if (poster_3_url === '') {
-                textureFront.current = new TextureLoader().load('assets/textures/Placement3.jpg')
+                textureFront.current = new TextureLoader().load('assets/textures/NFT_wall_poster_3.png')
             } else {
                 textureFront.current = new TextureLoader().load(poster_3_url)
             }

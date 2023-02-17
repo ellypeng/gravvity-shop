@@ -128,7 +128,7 @@ const useStore = create(() => {
         size_model_9: 0.12,
         url_model_9: 'assets/models/shoes/freedom-gundam.glb',
         position_9: [0, 2.2, 2],
-        rotation_9: [0, Math.PI, 0]
+        rotation_9: [0, Math.PI/180, 0]
       },
       model_10: {
         size_model_10: 0.004,

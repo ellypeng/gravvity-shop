@@ -204,9 +204,8 @@ export default function Home() {
               <Poster2 position={[9.8, 4.03, -11.47]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.0, 6.79, 2]} visible={uiStep === 3 ? true : false} />
               {/* Wall */}
               <Poster3 position={[-0.96, 4.26, -12.67]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
-              <Poster3 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI * 2 / 360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false} />
 
-              {/* <Poster4 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI*0.1/360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false}/> */}
+              <Poster4 position={[-8.12, 4.26, -12.67]} rotation={[0, -Math.PI*0.1/360, 0]} scale={[4.3, 6.96, 2]} visible={uiStep === 3 ? true : false}/>
               {/* Video */}
               <Poster5 position={[-7.8, 3.94, 8.16]} rotation={[0, Math.PI * 106 / 180, 0]} scale={[3.3, 7.2, 2]} visible={uiStep === 3 ? true : false} />
               {/* Lobby Poster */}
