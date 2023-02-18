@@ -56,7 +56,7 @@ const useStore = create(() => {
     popupCart: 0,
     popMyCart: 0,
     popMyCart3D: 0,
-    popThanks: 1, 
+    popThanks: 0, 
 
     poster_1_url: '',
     poster_2_url: '',
