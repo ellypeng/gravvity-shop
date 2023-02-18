@@ -58,6 +58,9 @@ import VirtualWorldUI from "../webgl-components/VirtualWorldUI";
 import ShoppingCart from "../webgl-components/ShoppingCart";
 import { useCurrentUser } from '../lib/user';
 import MyCart from '../webgl-components/MyCart'
+import MyCart3D from '../webgl-components/MyCart3D'
+import Thanks from '../webgl-components/Thanks'
+
 
 function loadStorage() {
   if (localStorage.getItem("hairStyle") !== null) {
@@ -296,6 +299,8 @@ export default function Home() {
       <Loading />
       <ShoppingCart />
       <MyCart />
+      <MyCart3D />
+      <Thanks />
     </main>
   )
 }

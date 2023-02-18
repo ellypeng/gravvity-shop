@@ -141,6 +141,8 @@ const VirtualWorldUI = (props) => {
             popMyCart: 0,
             popup: 0,
             popupIndex: 0,
+            popupModelIndex: 0,
+            popMyCart3D: 0
           })
         }}>
           <Image className="m-3" src={'/assets/parcel.png'} width={30} height={30} alt={'logo'} />

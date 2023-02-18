@@ -27,7 +27,7 @@ export function ShelfMiddle(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
-      onClick={() => { useStore.setState({ popupModel: 8 }) }}
+      onClick={() => { useStore.setState({ popMyCart3D: 8, popupModelIndex: 8}) }}
       onPointerOver={() => (setHover(true))}
       onPointerOut={() => (setHover(false))} 
     >

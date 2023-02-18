@@ -28,7 +28,7 @@ export function Shoes1(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
-      onClick={() => { useStore.setState({ popupModel: 1 }) }}
+      onClick={() => { useStore.setState({ popMyCart3D: 1, popupModelIndex: 1}) }}
       onPointerOver={() => (setHover(true))}
       onPointerOut={() => (setHover(false))} 
     >

@@ -443,7 +443,7 @@ export default function ShoppingCart() {
                 style={{
                   backgroundColor: "black", color: "white", border: "none",
                   padding: "10px 10px", borderRadius: "10px", width: '90%', marginLeft: 15, marginRight: 15
-                }}
+                }} onClick={() => { useStore.setState({ popThanks: 1, popupCart : 0})}}
               >
                 Make payment
               </button>

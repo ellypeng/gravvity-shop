@@ -27,7 +27,7 @@ export function ShelfLeft(props) {
       rotation={props.rotation}
       scale={props.scale} 
       visible={props.visible}
-      onClick={() => { useStore.setState({ popupModel: 7 }) }}
+      onClick={() => { useStore.setState({ popMyCart3D: 7, popupModelIndex: 7 }) }}
       onPointerOver={() => (setHover(true))}
       onPointerOut={() => (setHover(false))} 
     >
