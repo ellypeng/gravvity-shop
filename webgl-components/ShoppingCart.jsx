@@ -344,14 +344,14 @@ export default function ShoppingCart() {
               </h1>
             </div>
           </div>
-          <div style={{ width: '100%', display: 'flex', overflow: 'auto', height: 200, justifyContent: 'center' }}>
+          <div style={{ width: '100%', display: 'flex', overflow: 'auto', height: 250, justifyContent: 'center' }}>
             {shooping.length === 0 ? <h1 style={{ fontWeight: 'bold', fontSize: '28px', display: 'flex', alignItems: 'center' }}>
               Your product list will appear here!
             </h1> :
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
                 {shooping.map(item => (
 
-                  <li key={item.id} style={{ display: "flex", alignItems: "center", margin: "15px 0px", padding: '15px 0px', borderBottom: '1px solid #CFCFCF' }}>
+                  <li key={item.id} style={{ display: "flex", alignItems: "center", margin: "10px 0px", padding: '5px 0px', borderBottom: '1px solid #CFCFCF' }}>
                     <div>
                       <img src={item.img} alt={item.name} style={{ width: "50px", marginRight: "20px", borderRadius: '10px', }} />
                     </div>

@@ -13,11 +13,16 @@ import Leviathan_UR_Card from '../public/assets/textures/model_3d_img/Leviathan_
 import Mammon_UR_Card from '../public/assets/textures/model_3d_img/Mammon_UR_Card.png'
 import ObeyMeComicV1 from '../public/assets/textures/model_3d_img/ObeyMeComicV1.png'
 import ObeyMeComicV2 from '../public/assets/textures/model_3d_img/ObeyMeComicV2.png'
-
-
-
-
-
+import PunkFrackCoat1 from '../public/assets/textures/model_3d_img/1PunkFrackCoat.png'
+import UniformJacket2 from '../public/assets/textures/model_3d_img/2UniformJacket.png'
+import ZippedUpJacket3 from '../public/assets/textures/model_3d_img/3ZippedUpJacket.png'
+import VestShirtCombo4 from '../public/assets/textures/model_3d_img/4VestShirtCombo.png'
+import CoatWithCape5 from '../public/assets/textures/model_3d_img/5CoatWithCape.png'
+import LolitaMiniDress6 from '../public/assets/textures/model_3d_img/6LolitaMiniDress.png'
+import BlouseAndSuspenders7 from '../public/assets/textures/model_3d_img/7BlouseAndSuspenders.png'
+import gang_long_coat from '../public/assets/textures/model_3d_img/gang_long_coat.png'
+import mens_magican_outfit from '../public/assets/textures/model_3d_img/1_mens_magican_outfit.png'
+import length_trench_coat_shirt_tie_outfit2 from '../public/assets/textures/model_3d_img/2length_trench_coat_shirt_tie_outfit.png'
 
 const useStore = create(() => {
   return {
@@ -231,19 +236,18 @@ const useStore = create(() => {
       { "nombre": "Obey Me comic #1", "precio": 15.42, "categoria": "NFT", "imagen": Leviathan_UR_Card, onlyLeft: 20 },
       { "nombre": "Obey Me comic #2", "precio": 120.32, "categoria": "NFT", "imagen": Mammon_UR_Card, onlyLeft: 20 },
       { "nombre": "Obey Me comic #3", "precio": 30.56, "categoria": "NFT", "imagen": ObeyMeComicV1, onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #6", "precio": 100.54, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #7", "precio": 300.32, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #8", "precio": 300.21, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #6", "precio": 100.54, "categoria": "NFT", "imagen": length_trench_coat_shirt_tie_outfit2, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #7", "precio": 300.32, "categoria": "NFT", "imagen": mens_magican_outfit, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #8", "precio": 300.21, "categoria": "NFT", "imagen": gang_long_coat, onlyLeft: 20 },
       { "nombre": "Obey Me comic #7", "precio": 300.22, "categoria": "NFT", "imagen": ObeyMeComicV1, onlyLeft: 20 },
       { "nombre": "Obey Me comic #8", "precio": 300.32, "categoria": "NFT", "imagen": ObeyMeComicV2, onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #11", "precio": 300.43, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #12", "precio": 300.16, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #13", "precio": 300.76, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #14", "precio": 300.98, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #15", "precio": 300.87, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #16", "precio": 300.99, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me Outfit #17", "precio": 300.99, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-
+      { "nombre": "Obey Me Outfit #11", "precio": 300.43, "categoria": "NFT", "imagen": PunkFrackCoat1, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #12", "precio": 300.16, "categoria": "NFT", "imagen": UniformJacket2, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #13", "precio": 300.76, "categoria": "NFT", "imagen": ZippedUpJacket3, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #14", "precio": 300.98, "categoria": "NFT", "imagen": VestShirtCombo4, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #15", "precio": 300.87, "categoria": "NFT", "imagen": LolitaMiniDress6, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #16", "precio": 300.99, "categoria": "NFT", "imagen": CoatWithCape5, onlyLeft: 20 },
+      { "nombre": "Obey Me Outfit #17", "precio": 300.99, "categoria": "NFT", "imagen": BlouseAndSuspenders7, onlyLeft: 20 },
     ],
 
     shoe_1_url: 'assets/models/shoes/shoes1.glb',
