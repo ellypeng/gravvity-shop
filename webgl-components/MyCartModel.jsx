@@ -120,7 +120,7 @@ export default function MyCartModel() {
             )}
           </div> */}
         </div>
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '16px 16px' }}>
+        <div style={{ display: 'flex', padding: '16px 16px', position: 'absolute', bottom: 0, right: 0 }}>
           <button onClick={() => { useStore.setState({ popMyCart: 0, popup: popupIndex }) }} style={{ fontSize: '30px' }}>
             <FaRegSun />
           </button>

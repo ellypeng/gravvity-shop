@@ -6,6 +6,16 @@ import ntf4 from '../public/assets/textures/NFT_wall_poster_4.png'
 import ntf5 from '../public/assets/textures/NFT_wall_poster_5.png'
 import place1 from '../public/assets/textures/Placement_1.png'
 import place2 from '../public/assets/textures/Placement_2.png'
+import Asmodeus_UR_Card from '../public/assets/textures/model_3d_img/Asmodeus_UR_Card.png'
+import Barbatos_UR_Card from '../public/assets/textures/model_3d_img/Barbatos_UR_Card.png'
+import Beezelbub_UR_Card from '../public/assets/textures/model_3d_img/Beezelbub_UR_Card.png'
+import Leviathan_UR_Card from '../public/assets/textures/model_3d_img/Leviathan_UR_Card.png'
+import Mammon_UR_Card from '../public/assets/textures/model_3d_img/Mammon_UR_Card.png'
+import ObeyMeComicV1 from '../public/assets/textures/model_3d_img/ObeyMeComicV1.png'
+import ObeyMeComicV2 from '../public/assets/textures/model_3d_img/ObeyMeComicV2.png'
+
+
+
 
 
 
@@ -215,17 +225,17 @@ const useStore = create(() => {
 
     objetos3D: [
       { "nombre": "Obey Me Outfit #1", "precio": 80.51, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #4", "precio": 80.26, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #5", "precio": 80.14, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #6", "precio": 25.21, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #1", "precio": 15.42, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #2", "precio": 120.32, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #3", "precio": 30.56, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
+      { "nombre": "Obey Me comic #4", "precio": 80.26, "categoria": "NFT", "imagen": Asmodeus_UR_Card, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #5", "precio": 80.14, "categoria": "NFT", "imagen": Barbatos_UR_Card, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #6", "precio": 25.21, "categoria": "NFT", "imagen": Beezelbub_UR_Card, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #1", "precio": 15.42, "categoria": "NFT", "imagen": Leviathan_UR_Card, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #2", "precio": 120.32, "categoria": "NFT", "imagen": Mammon_UR_Card, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #3", "precio": 30.56, "categoria": "NFT", "imagen": ObeyMeComicV1, onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #6", "precio": 100.54, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #7", "precio": 300.32, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #8", "precio": 300.21, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #7", "precio": 300.22, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
-      { "nombre": "Obey Me comic #8", "precio": 300.32, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
+      { "nombre": "Obey Me comic #7", "precio": 300.22, "categoria": "NFT", "imagen": ObeyMeComicV1, onlyLeft: 20 },
+      { "nombre": "Obey Me comic #8", "precio": 300.32, "categoria": "NFT", "imagen": ObeyMeComicV2, onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #11", "precio": 300.43, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #12", "precio": 300.16, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
       { "nombre": "Obey Me Outfit #13", "precio": 300.76, "categoria": "NFT", "imagen": 'https://via.placeholder.com/150x150?text=Camisa+algodón', onlyLeft: 20 },
