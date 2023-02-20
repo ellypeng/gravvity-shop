@@ -15,9 +15,7 @@ export default function MyCart3D() {
   const [selectedValue, setSelectedValue] = useState("1");
   const [test1, setTest1] = useState({});
 
-  const notify = () => toast.success("Added to cart!", {
-    autoClose: 2000,
-  });
+  
 
   const sumitChange = () => {
     let test3 = {
@@ -35,7 +33,9 @@ export default function MyCart3D() {
 
     }))
 
-    notify();
+    toast.success("Added to cart!", {
+      autoClose: 2000,
+    });
   };
 
   return (
@@ -45,12 +45,12 @@ export default function MyCart3D() {
         backgroundColor: '#FAFAFA', bottom: 10, right: 10, width: '100%', height: '100%', maxHeight: '416px', maxWidth: '500px',
         borderRadius: '25px', overflow: 'auto', flexDirection: 'column'
       }}>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       <div>
         <div style={{ display: "flex", alignItems: "center", margin: "15px 0px 0px 0px", padding: '15px 15px 0px 15px' }}>
           <div>
-            <img src={data[popMyCart3D].imagen.src} alt={'zapatos'} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
+            <img src={data[popMyCart3D].imagen.src} alt={data[popMyCart3D].nombre} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -99,7 +99,7 @@ export default function MyCart3D() {
             {ipOpen1 && (
               <div className="dropdown-menu">
                 <p>
-                  Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton
+                  {/* Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton */}
                 </p>
               </div>
             )}

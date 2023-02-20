@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import useStore from '../helpers/store'
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcStripe, FaChevronLeft } from 'react-icons/fa';
-
-
+import countries from 'countries-list';
 
 
 export default function ShoppingCart() {
@@ -13,11 +12,21 @@ export default function ShoppingCart() {
   const popupCart = useStore((s) => s.popupCart)
   const shooping = useStore((s) => s.shooping)
   const [state, setstate] = useState(shooping);
+  const [price, setPrice] = useState(0)
 
   useEffect(() => {
-    console.log(shooping)
-    console.log(state.length === 0)
+
+
+
+
+    const total = shooping.reduce((acumulador, objeto) => {
+      return acumulador + objeto.price;
+    }, 0);
+
+    setPrice(total)
   }, [shooping]);
+
+
 
   const cartItems1 = [
     {
@@ -65,6 +74,13 @@ export default function ShoppingCart() {
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
   const [input4, setInput4] = useState('');
+
+  const countryList = Object.entries(countries.countries).map(([code, name]) => ({
+    code,
+    name,
+  }));
+
+
 
   const handleToggleDropdown = () => {
     setInput1(!isOpen1);
@@ -136,7 +152,7 @@ export default function ShoppingCart() {
                   <div className='columna'>
                     <div style={{ display: 'flex', flexDirection: 'column' }} >
                       <label className='labeldetails' htmlFor='firstName'>First Name</label>
-                      <input className='inputsDetails' type="text" 
+                      <input className='inputsDetails' type="text"
                         value={input1}
                         name='firtsName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -147,7 +163,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -160,7 +176,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         value={input1}
                         name='lastName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -171,7 +187,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='phone'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -195,16 +211,17 @@ export default function ShoppingCart() {
                   <div className='columna'>
                     <div style={{ display: 'flex', flexDirection: 'column' }} >
                       <label className='labeldetails' htmlFor='firstName'>Country</label>
-                      {/* <input className='inputsDetails' type="text" 
-                        value={input1}
-                        name='firtsName'
-                        onChange={(event) => handleInputChange(event, 'input1')}
-                      /> */}
                       <select className='inputsDetails'>
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option selected value="coconut">Coconut</option>
-                        <option value="mango">Mango</option>
+
+                        <option value="">Select a country</option>
+                        {
+                          countryList.map((country) => (
+                            <option key={country.code} value={country.code}>
+                              {country.name.name}
+                            </option>
+                          ))
+
+                        }
                       </select>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -212,7 +229,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -223,7 +240,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -236,7 +253,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         value={input1}
                         name='lastName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -247,7 +264,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -258,7 +275,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        
+
                         name='phone'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -311,52 +328,6 @@ export default function ShoppingCart() {
                     <label className='label-card' htmlFor="cardNumber">Cardholder</label>
                     <input className='input-card' type="text" id="cardNumber" />
                   </form>
-
-                  {/* <div className='columna'>
-                    <div style={{ display: 'flex', flexDirection: 'column' }} >
-                      <label className='labeldetails' htmlFor='firstName'>First Name</label>
-                      <input className='inputsDetails' type="text" 
-                        value={input1}
-                        name='firtsName'
-                        onChange={(event) => handleInputChange(event, 'input1')}
-                      />
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label className='labeldetails' htmlFor='email'>Email:</label>
-                      <input
-                        className='inputsDetails'
-                        type="text"
-                        
-                        name='email'
-                        value={input1}
-                        onChange={(event) => handleInputChange(event, 'input1')}
-                      />
-                    </div>
-                  </div>
-                  <div className='columna'>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label className='labeldetails' htmlFor='lastName'>Last Name</label>
-                      <input
-                        className='inputsDetails'
-                        type="text"
-                        
-                        value={input1}
-                        name='lastName'
-                        onChange={(event) => handleInputChange(event, 'input1')}
-                      />
-                    </div >
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <label className='labeldetails' htmlFor='phone'>Phone Number</label>
-                      <input
-                        className='inputsDetails'
-                        type="text"
-                        
-                        name='phone'
-                        value={input1}
-                        onChange={(event) => handleInputChange(event, 'input1')}
-                      />
-                    </div>
-                  </div> */}
                 </div>
               )}
             </div>
@@ -374,9 +345,9 @@ export default function ShoppingCart() {
             </div>
           </div>
           <div style={{ width: '100%', display: 'flex', overflow: 'auto', height: 200, justifyContent: 'center' }}>
-            {shooping.length === 0 ? null :
-
-
+            {shooping.length === 0 ? <h1 style={{ fontWeight: 'bold', fontSize: '28px', display: 'flex', alignItems: 'center' }}>
+              Your product list will appear here!
+            </h1> :
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginRight: 10, marginLeft: 15, width: '90%' }}>
                 {shooping.map(item => (
 
@@ -389,7 +360,7 @@ export default function ShoppingCart() {
                         <span style={{ fontWeight: "bold" }}>{item.category}</span>
                         <span style={{ fontWeight: "bold", fontSize: '20px' }}>${item.price}</span>
                       </div>
-                      <h3 style={{ marginBottom: "5px" ,  fontSize: '20px'}}>{item.cantidad} x {item.name}</h3>
+                      <h3 style={{ marginBottom: "5px", fontSize: '20px' }}>{item.cantidad} x {item.name}</h3>
                     </div>
                   </li>))}
               </ul>
@@ -421,19 +392,19 @@ export default function ShoppingCart() {
                 <tbody>
                   <tr>
                     <td style={{ textAlign: 'left', padding: '5px' }}>Subtotal</td>
-                    <td style={{ textAlign: 'right', padding: '5px' }}>$10</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}></td>
                   </tr>
                   <tr>
                     <td style={{ textAlign: 'left', padding: '5px' }}>Tax</td>
-                    <td style={{ textAlign: 'right', padding: '5px' }}>$10</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}></td>
                   </tr>
                   <tr style={{ paddingBottom: 20 }}>
                     <td style={{ textAlign: 'left', borderBottom: '3px solid black', padding: '5px' }}>Shipping</td>
-                    <td style={{ textAlign: 'right', borderBottom: '3px solid black', padding: '5px' }}>$10</td>
+                    <td style={{ textAlign: 'right', borderBottom: '3px solid black', padding: '5px' }}></td>
                   </tr>
                   <tr>
                     <td style={{ textAlign: 'left', padding: '5px' }}>Total amount</td>
-                    <td style={{ textAlign: 'right', padding: '5px' }}>$ 1000.00</td>
+                    <td style={{ textAlign: 'right', padding: '5px' }}>$ {price.toFixed(2)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -443,7 +414,7 @@ export default function ShoppingCart() {
                 style={{
                   backgroundColor: "black", color: "white", border: "none",
                   padding: "10px 10px", borderRadius: "10px", width: '90%', marginLeft: 15, marginRight: 15
-                }} onClick={() => { useStore.setState({ popThanks: 1, popupCart : 0})}}
+                }} onClick={() => { useStore.setState({ popThanks: 1, popupCart: 0 }) }}
               >
                 Make payment
               </button>

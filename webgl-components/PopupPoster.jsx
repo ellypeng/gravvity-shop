@@ -177,7 +177,7 @@ const PopupPoster = (props) => {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div
         className="absolute top-0 left-0 w-screen h-screen overflow-hidden backdrop-blur-lg"
         style={{display:popUpIndex!==0?'block':'none', backgroundSize: 'cover', zIndex:2000000000}}

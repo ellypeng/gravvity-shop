@@ -15,9 +15,7 @@ export default function MyCartModel() {
   const [selectedValue, setSelectedValue] = useState("1");
   const [test1, setTest1] = useState({});
 
-  const notify = () => toast.success("Added to cart!", {
-    autoClose: 2000,
-  });
+
 
   const sumitChange = () => {
     let test3 = {
@@ -35,7 +33,9 @@ export default function MyCartModel() {
 
     }))
 
-    notify();
+    toast.success("Added to cart!", {
+      autoClose: 2000,
+    });
   };
 
   return (
@@ -45,12 +45,12 @@ export default function MyCartModel() {
         backgroundColor: '#FAFAFA', bottom: 10, right: 10, width: '100%', height: '100%', maxHeight: '416px', maxWidth: '500px',
         borderRadius: '25px', overflow: 'auto', flexDirection: 'column'
       }}>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       <div>
         <div style={{ display: "flex", alignItems: "center", margin: "15px 0px 0px 0px", padding: '15px 15px 0px 15px' }}>
           <div>
-            <img src={data[popMyCart].imagen.src} alt={'zapatos'} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
+            <img src={data[popMyCart].imagen.src} alt={data[popMyCart].nombre} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -99,12 +99,12 @@ export default function MyCartModel() {
             {ipOpen1 && (
               <div className="dropdown-menu">
                 <p>
-                  Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton
+                  {/* Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton */}
                 </p>
               </div>
             )}
           </div>
-          <div className="dropdown1" style={{}}>
+          {/* <div className="dropdown1" style={{}}>
             <button className='dropButton1' onClick={() => { setIpOpen2(!ipOpen2) }} style={{
               borderBottom: !ipOpen2 ? '1px solid #000' : 'none',
             }}>
@@ -118,7 +118,7 @@ export default function MyCartModel() {
                 </p>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '16px 16px' }}>
           <button onClick={() => { useStore.setState({ popMyCart: 0, popup: popupIndex }) }} style={{ fontSize: '30px' }}>

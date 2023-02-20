@@ -15,9 +15,9 @@ export default function MyCart() {
   const [selectedValue, setSelectedValue] = useState("1");
   const [test1, setTest1] = useState({});
 
-  const notify = () => toast.success("Added to cart!", {
-    autoClose: 2000,
-  });
+
+
+
 
   const sumitChange = () => {
     let test3 = {
@@ -32,10 +32,47 @@ export default function MyCart() {
     useStore.setState((state) => ({
       ...state,
       shooping: [...state.shooping, test3]
-
     }))
 
-    notify();
+    // if (popMyCart === 1) {
+
+    //   useStore.setState((state) => ({
+    //     ...state,
+    //     objetos: { ...state.objetos[1], onlyLeft: objetos[1].onlyLeft - 1 }
+    //   }))
+    // }
+    // else if (popMyCart === 2) {
+    //   useStore.setState({ poster_2_url: response.product2d.url })
+
+    // }
+    // else if (popMyCart === 3) {
+    //   useStore.setState({ poster_3_url: response.product2d.url })
+    // }
+    // else if (popMyCart === 4) {
+    //   useStore.setState({ poster_4_url: response.product2d.url })
+
+    // }
+    // else if (popMyCart === 5) {
+    //   useStore.setState({ poster_5_url: response.product2d.url })
+
+    // }
+    // else if (popMyCart === 6) {
+    //   useStore.setState({ poster_6_url: response.product2d.url })
+
+    // }
+    // else if (popMyCart === 7) {
+
+    //   const updatedObject = { ...objetos[7], onlyLeft: objetos[7].onlyLeft - 1 };
+    //   const newArray = [...objetos];
+    //   newArray[1] = updatedObject;
+    //   setMyArray(newArray);
+
+    //   console.log(objetos)
+    // }
+
+    toast.success("Added to cart!", {
+      autoClose: 2000,
+    });
   };
 
   return (
@@ -45,12 +82,12 @@ export default function MyCart() {
         backgroundColor: '#FAFAFA', bottom: 10, right: 10, width: '100%', height: '100%', maxHeight: '416px', maxWidth: '500px',
         borderRadius: '25px', overflow: 'auto', flexDirection: 'column'
       }}>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       <div>
         <div style={{ display: "flex", alignItems: "center", margin: "15px 0px 0px 0px", padding: '15px 15px 0px 15px' }}>
           <div>
-            <img src={data[popMyCart].imagen.src} alt={'zapatos'} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
+            <img src={data[popMyCart].imagen.src} alt={data[popMyCart].nombre} style={{ width: "75px", marginRight: "20px", borderRadius: '10px', }} />
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -59,7 +96,7 @@ export default function MyCart() {
               <button onClick={() => { useStore.setState({ popMyCart: 0 }) }}><FaRegTimesCircle style={{ fontSize: '25px' }} /></button>
             </div>
             <h3 style={{ marginBottom: "5px", fontFamily: 'Poppins', fontSize: '25px', fontWeight: 600 }}>{data[popMyCart].nombre}</h3>
-            <h3 style={{ marginBottom: '5px', color: '#111111', fontSize: '16px', fontFamily: 'Be Vietnam', fontStyle: 'italic', fontWeight: 400 }}>onlY 12 left</h3>
+            <h3 style={{ marginBottom: '5px', color: '#111111', fontSize: '16px', fontWeight: 400 }}>only {data[popMyCart].onlyLeft} left</h3>
           </div>
         </div>
         <div style={{ display: "flex", width: '100%', justifyContent: 'center' }}>
@@ -79,7 +116,7 @@ export default function MyCart() {
               width: '80%', marginTop: 15, marginBottom: 15, borderRadius: 10,
               backgroundColor: "black", color: "white", display: 'flex', justifyContent: 'space-between'
             }} onClick={() => { sumitChange() }}>
-              <span style={{ color: 'white', fontFamily: 'Be Vietnam' }}>
+              <span style={{ color: 'white' }}>
                 Add to cart
               </span>
               <span style={{ color: 'white', fontFamily: 'Be Vietnam', borderLeft: '1px solid #FFF', fontSize: '16px', paddingLeft: '10px' }}>
@@ -99,7 +136,7 @@ export default function MyCart() {
             {ipOpen1 && (
               <div className="dropdown-menu">
                 <p>
-                  Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton
+                  {/* Air Max 1/97 VF Nike x Sean Wotherspoon sneakers Multicolour cotton */}
                 </p>
               </div>
             )}
@@ -120,7 +157,7 @@ export default function MyCart() {
             )}
           </div> */}
         </div>
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '16px 16px' }}>
+        <div style={{ display: 'flex', padding: '16px 16px', position: 'absolute', bottom: 0, right: 0 }}>
           <button onClick={() => { useStore.setState({ popMyCart: 0, popup: popupIndex }) }} style={{ fontSize: '30px' }}>
             <FaRegSun />
           </button>

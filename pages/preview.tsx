@@ -60,6 +60,7 @@ import { useCurrentUser } from '../lib/user';
 import MyCart from '../webgl-components/MyCart'
 import MyCart3D from '../webgl-components/MyCart3D'
 import Thanks from '../webgl-components/Thanks'
+import { ToastContainer } from 'react-toastify';
 
 
 function loadStorage() {
@@ -301,6 +302,8 @@ export default function Home() {
       <MyCart />
       <MyCart3D />
       <Thanks />
+      <ToastContainer />
+
     </main>
   )
 }
