@@ -93,7 +93,7 @@ export default function MyCart3D() {
             <button className='dropButton1' onClick={() => { setIpOpen1(!ipOpen1) }} style={{
               borderBottom: !ipOpen1 ? '1px solid #000' : 'none',
             }}>
-              <span style={{ fontWeight: 600, fontSize: 20 }}>Payment details</span>
+              <span style={{ fontWeight: 600, fontSize: 20 }}>Product Details</span>
               <span style={{ marginLeft: '10px', fontSize: 30 }}> {!ipOpen1 ? '+' : '-'}</span>
             </button>
             {ipOpen1 && (
@@ -104,7 +104,7 @@ export default function MyCart3D() {
               </div>
             )}
           </div>
-          <div className="dropdown1" style={{}}>
+          {/* <div className="dropdown1" style={{}}>
             <button className='dropButton1' onClick={() => { setIpOpen2(!ipOpen2) }} style={{
               borderBottom: !ipOpen2 ? '1px solid #000' : 'none',
             }}>
@@ -118,7 +118,7 @@ export default function MyCart3D() {
                 </p>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '16px 16px' }}>
           <button onClick={() => { useStore.setState({ popMyCart3D: 0, popupModel: popupModelIndex }) }} style={{ fontSize: '30px' }}>

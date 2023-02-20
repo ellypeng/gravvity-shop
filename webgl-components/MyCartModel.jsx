@@ -93,7 +93,7 @@ export default function MyCartModel() {
             <button className='dropButton1' onClick={() => { setIpOpen1(!ipOpen1) }} style={{
               borderBottom: !ipOpen1 ? '1px solid #000' : 'none',
             }}>
-              <span style={{ fontWeight: 600, fontSize: 20 }}>Payment details</span>
+              <span style={{ fontWeight: 600, fontSize: 20 }}>Product Details</span>
               <span style={{ marginLeft: '10px', fontSize: 30 }}> {!ipOpen1 ? '+' : '-'}</span>
             </button>
             {ipOpen1 && (

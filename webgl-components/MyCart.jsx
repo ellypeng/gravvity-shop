@@ -59,7 +59,7 @@ export default function MyCart() {
               <button onClick={() => { useStore.setState({ popMyCart: 0 }) }}><FaRegTimesCircle style={{ fontSize: '25px' }} /></button>
             </div>
             <h3 style={{ marginBottom: "5px", fontFamily: 'Poppins', fontSize: '25px', fontWeight: 600 }}>{data[popMyCart].nombre}</h3>
-            <h3 style={{ marginBottom: '5px', color: '#111111', fontSize: '16px', fontFamily: 'Be Vietnam', fontStyle: 'italic', fontWeight: 400 }}>onli 12 left</h3>
+            <h3 style={{ marginBottom: '5px', color: '#111111', fontSize: '16px', fontFamily: 'Be Vietnam', fontStyle: 'italic', fontWeight: 400 }}>onlY 12 left</h3>
           </div>
         </div>
         <div style={{ display: "flex", width: '100%', justifyContent: 'center' }}>
@@ -93,7 +93,7 @@ export default function MyCart() {
             <button className='dropButton1' onClick={() => { setIpOpen1(!ipOpen1) }} style={{
               borderBottom: !ipOpen1 ? '1px solid #000' : 'none',
             }}>
-              <span style={{ fontWeight: 600, fontSize: 20 }}>Payment details</span>
+              <span style={{ fontWeight: 600, fontSize: 20 }}>Product Details</span>
               <span style={{ marginLeft: '10px', fontSize: 30 }}> {!ipOpen1 ? '+' : '-'}</span>
             </button>
             {ipOpen1 && (
@@ -104,7 +104,7 @@ export default function MyCart() {
               </div>
             )}
           </div>
-          <div className="dropdown1" style={{}}>
+          {/* <div className="dropdown1" style={{}}>
             <button className='dropButton1' onClick={() => { setIpOpen2(!ipOpen2) }} style={{
               borderBottom: !ipOpen2 ? '1px solid #000' : 'none',
             }}>
@@ -118,7 +118,7 @@ export default function MyCart() {
                 </p>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', padding: '16px 16px' }}>
           <button onClick={() => { useStore.setState({ popMyCart: 0, popup: popupIndex }) }} style={{ fontSize: '30px' }}>

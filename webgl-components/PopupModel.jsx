@@ -634,12 +634,28 @@ const PopupModel = (props) => {
               >
                 Cancel
               </button>
-              <button
+              {/* <button
                 className="text bg-[#111111] bg-opacity-40 text-white border rounded-xl font-semibold cursor-pointer py-1 px-12 text-vietnam"
                 onClick={() => changePopUpSub()}
               >
                 Next
-              </button>
+              </button> */}
+              {!selectedFiles ?
+                <button
+                  className="text bg-[#111111] bg-opacity-40 text-white border rounded-xl font-semibold cursor-pointer py-1 px-12 text-vietnam"
+                  onClick={() => changePopUpSub()}
+                >
+                  Next
+                </button>
+              :
+              
+                <button
+                  className="text bg-[#111111] text-white border rounded-xl font-semibold cursor-pointer py-1 px-12 text-vietnam"
+                  onClick={() => changePopUpSub()}
+                >
+                  Next
+                </button>
+              }
             </aside>
           </div>
 

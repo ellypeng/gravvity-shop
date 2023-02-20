@@ -36,6 +36,7 @@ const VirtualWorldUI = (props) => {
   let playerPosition = useStore((s) => s.playerPosition)
   let test1 = useStore((s) => s.testPoster);
   let testRotacion = useStore((s) => s.testRotacion);
+  let shooping = useStore((s) => s.shooping)
   const popupCart = useStore((s) => s.popupCart)
   const [test3, setTest3] = useState(test1);
 
@@ -149,7 +150,7 @@ const VirtualWorldUI = (props) => {
           <span style={{
             marginRight: 10, backgroundColor: '#000', color: '#FFF', borderRadius: '50%', width: 20, height: 20,
             flexDirection: 'row', alignItems: 'center', display: 'flex', justifyContent: 'center'
-          }}>0</span>
+          }}>{shooping.length}</span>
         </div>
 
         <div className='relative w-[150px] h-[150px] mr-12 cursor-move min-[564px]:hidden'>

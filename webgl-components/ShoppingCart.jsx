@@ -120,7 +120,7 @@ export default function ShoppingCart() {
             </button>
           </div>
           <div style={{ padding: '0px 20px' }}>
-            <h1 style={{ fontSize: 30, fontWeight: 500 }}>CheckOut Details</h1>
+            <h1 style={{ fontSize: 30, fontWeight: 500 }}>Checkout Details</h1>
           </div>
 
           <div className='panelCheck'>
@@ -136,7 +136,7 @@ export default function ShoppingCart() {
                   <div className='columna'>
                     <div style={{ display: 'flex', flexDirection: 'column' }} >
                       <label className='labeldetails' htmlFor='firstName'>First Name</label>
-                      <input className='inputsDetails' type="text" placeholder="Input 1"
+                      <input className='inputsDetails' type="text" 
                         value={input1}
                         name='firtsName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -147,7 +147,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -160,7 +160,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         value={input1}
                         name='lastName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -171,7 +171,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='phone'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -195,7 +195,7 @@ export default function ShoppingCart() {
                   <div className='columna'>
                     <div style={{ display: 'flex', flexDirection: 'column' }} >
                       <label className='labeldetails' htmlFor='firstName'>Country</label>
-                      {/* <input className='inputsDetails' type="text" placeholder="Input 1"
+                      {/* <input className='inputsDetails' type="text" 
                         value={input1}
                         name='firtsName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -212,7 +212,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -223,7 +223,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -236,7 +236,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         value={input1}
                         name='lastName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -247,7 +247,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -258,7 +258,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='phone'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -283,7 +283,7 @@ export default function ShoppingCart() {
                 <div className="dropdown-menu">
                   <form className='form-car'>
 
-                    <label className='label-card' htmlFor="cardNumber">Número de tarjeta de crédito</label>
+                    <label className='label-card' htmlFor="cardNumber">Credit Card Number</label>
                     <div className='inputs-div'>
                       <input className='input-card1' type="text" placeholder="1234 1234 1234 1234" />
                       <span className='card-icon'>
@@ -308,14 +308,14 @@ export default function ShoppingCart() {
                       </div>
                     </div>
 
-                    <label className='label-card' htmlFor="cardNumber">Número de tarjeta de crédito</label>
+                    <label className='label-card' htmlFor="cardNumber">Cardholder</label>
                     <input className='input-card' type="text" id="cardNumber" />
                   </form>
 
                   {/* <div className='columna'>
                     <div style={{ display: 'flex', flexDirection: 'column' }} >
                       <label className='labeldetails' htmlFor='firstName'>First Name</label>
-                      <input className='inputsDetails' type="text" placeholder="Input 1"
+                      <input className='inputsDetails' type="text" 
                         value={input1}
                         name='firtsName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -326,7 +326,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='email'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -339,7 +339,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         value={input1}
                         name='lastName'
                         onChange={(event) => handleInputChange(event, 'input1')}
@@ -350,7 +350,7 @@ export default function ShoppingCart() {
                       <input
                         className='inputsDetails'
                         type="text"
-                        placeholder="Input 1"
+                        
                         name='phone'
                         value={input1}
                         onChange={(event) => handleInputChange(event, 'input1')}
